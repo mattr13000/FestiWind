@@ -15,10 +15,28 @@
 		87C8319B30581FC80032A6F3 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		87C831A830583C1B0032A6F3 /* Exceptions for "FestiWind" folder in "FestiWind" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 87C8318C30581F960032A6F3 /* FestiWind */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		87C8318F30581F960032A6F3 /* FestiWind */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				87C831A830583C1B0032A6F3 /* Exceptions for "FestiWind" folder in "FestiWind" target */,
+			);
 			path = FestiWind;
+			sourceTree = "<group>";
+		};
+		87C8319F30583AB90032A6F3 /* Fonts */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -37,6 +55,7 @@
 		87C8318430581F960032A6F3 = {
 			isa = PBXGroup;
 			children = (
+				87C8319F30583AB90032A6F3 /* Fonts */,
 				87C8319B30581FC80032A6F3 /* .gitignore */,
 				87C8318F30581F960032A6F3 /* FestiWind */,
 				87C8318E30581F960032A6F3 /* Products */,
@@ -68,6 +87,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				87C8318F30581F960032A6F3 /* FestiWind */,
+				87C8319F30583AB90032A6F3 /* Fonts */,
 			);
 			name = FestiWind;
 			packageProductDependencies = (
@@ -260,6 +280,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FestiWind/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -291,6 +312,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FestiWind/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
