@@ -34,11 +34,6 @@
 			path = FestiWind;
 			sourceTree = "<group>";
 		};
-		87C8319F30583AB90032A6F3 /* Fonts */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Fonts;
-			sourceTree = "<group>";
-		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +50,6 @@
 		87C8318430581F960032A6F3 = {
 			isa = PBXGroup;
 			children = (
-				87C8319F30583AB90032A6F3 /* Fonts */,
 				87C8319B30581FC80032A6F3 /* .gitignore */,
 				87C8318F30581F960032A6F3 /* FestiWind */,
 				87C8318E30581F960032A6F3 /* Products */,
@@ -87,7 +81,6 @@
 			);
 			fileSystemSynchronizedGroups = (
 				87C8318F30581F960032A6F3 /* FestiWind */,
-				87C8319F30583AB90032A6F3 /* Fonts */,
 			);
 			name = FestiWind;
 			packageProductDependencies = (
