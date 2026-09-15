@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.navbar {
+    height: 120px;
+    background-color: #5ba3c7;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 40px;
+}
+
+.logo {
+    width: 105px;
+    height: 105px;
+    border-radius: 25px;
+}
+
+.menu {
+    display: flex;
+    gap: 45px;
+}
+
+.menu a,
+.user a {
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+.user {
+    margin-left: auto;
+    text-align: center;
+}
+
+.user-icon {
+    font-size: 55px;
+    color: white;
+}
+.user a {
+    display: block;
+}
