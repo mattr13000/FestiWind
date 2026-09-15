@@ -14,7 +14,6 @@ struct CardTemplateView: View {
             .cornerRadius(8)
             .padding()
             .foregroundStyle(.white)
-            
             .shadow(color: .textSecondary, radius: 1, x: 0, y: 1)
     }
 }
