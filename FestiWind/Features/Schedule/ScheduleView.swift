@@ -15,7 +15,12 @@ struct ScheduleView: View {
                     .ignoresSafeArea()
                 ScrollView {
                     VStack {
-                        
+                        ScheduleCard()
+                        ScheduleCard()
+                        ScheduleCard()
+                        ScheduleCard()
+                        ScheduleCard()
+                        ScheduleCard()
                     }
                 }
                 .navigationTitle("Schedule")

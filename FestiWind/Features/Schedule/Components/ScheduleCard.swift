@@ -37,7 +37,6 @@ struct ScheduleCard: View {
                 textColor: .textPrimary,
                 backgroundColor: .buttonColorActive
             )
-            .padding(.bottom, 10)
         }
         .padding(30)
         .background(

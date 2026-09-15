@@ -10,7 +10,7 @@ import SwiftUI
 struct CardTemplateView: View {
     var body: some View {
         Rectangle()
-            .frame(maxHeight: 140)
+            .frame(maxHeight: .infinity)
             .cornerRadius(8)
             .padding()
             .foregroundStyle(.white)
