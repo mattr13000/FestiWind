@@ -15,20 +15,14 @@ struct LoginView: View {
     var body: some View {
         ZStack {
                     HomeBackgroundImageView()
-            
                     VStack {
                         Spacer()
                         Text("Festi Wind")
                             .font(.custom("Shalimar-Regular", size: 80))
                             .padding(.bottom, 60)
                         VStack (spacing: 16){
-                            TextFieldView(textFieldContent: $email, frameMaxWidth: 330)
-                            SecureField("Password", text: $password)
-                                .padding()
-                                .background(.white)
-                                .cornerRadius(5)
-                                .frame(maxWidth: 330)
-                                .shadow(color: .textSecondary, radius: 1, x: 0, y: 1)
+                            TextFieldView(textFieldContent: $email, placeholderText: "Email", frameMaxWidth: 330, isSecure: false)
+                            TextFieldView(textFieldContent: $password, placeholderText: "Password", frameMaxWidth: 330, isSecure: true)
                             HStack {
                                 TextButtonView(buttonText: "Forgot Password ?")
                             }
