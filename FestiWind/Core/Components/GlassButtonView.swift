@@ -11,6 +11,7 @@ struct GlassButtonView: View {
     
     var buttonText: String
     var frameMaxWidth: CGFloat
+    var frameMaxHeight: CGFloat?
     var opacity: CGFloat
     var textColor: Color
     var backgroundColor: Color
@@ -21,7 +22,7 @@ struct GlassButtonView: View {
             Text(buttonText)
                 .font(.headline)
                 .foregroundStyle(textColor)
-                .frame(maxWidth: frameMaxWidth)
+                .frame(maxWidth: frameMaxWidth, maxHeight: frameMaxHeight)
                 .padding()
                 .glassEffect(.regular.tint(backgroundColor.opacity(opacity)))
         }

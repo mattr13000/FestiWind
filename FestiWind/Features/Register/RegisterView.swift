@@ -21,8 +21,9 @@ struct RegisterView: View {
                             TextFieldView(textFieldContent: $name, placeholderText: "Name", frameMaxWidth: 150, isSecure: false)
                             Spacer()
                             TextFieldView(textFieldContent: $name, placeholderText: "Surname", frameMaxWidth: 150, isSecure: false)
+                            
                         }
-                        .frame(maxWidth: 330)
+                        .frame(maxWidth: 363)
                         TextFieldView(textFieldContent: $name, placeholderText: "Email", frameMaxWidth: 330, isSecure: false)
                         TextFieldView(textFieldContent: $name, placeholderText: "Password", frameMaxWidth: 330, isSecure: true)
                         TextFieldView(textFieldContent: $name, placeholderText: "Confirm Password", frameMaxWidth: 330, isSecure: true)
