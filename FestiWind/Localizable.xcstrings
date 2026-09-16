@@ -1,0 +1,117 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "11 pm to 12 pm" : {
+
+    },
+    "Already have an account ?" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Déjà inscrit ?"
+          }
+        }
+      }
+    },
+    "Confirmed" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirmé"
+          }
+        }
+      }
+    },
+    "Don't have an account yet ?" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pas encore de compte ?"
+          }
+        }
+      }
+    },
+    "Festi Wind" : {
+
+    },
+    "Home" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accueil"
+          }
+        }
+      }
+    },
+    "Kite surf" : {
+
+    },
+    "My bookings" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mes réservations"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mie prenotazioni"
+          }
+        }
+      }
+    },
+    "My Bookings" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mes Réservations"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mie Prenotazioni"
+          }
+        }
+      }
+    },
+    "Register" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "S’inscrire"
+          }
+        }
+      }
+    },
+    "Remaining places: 25" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Places restantes: 25"
+          }
+        }
+      }
+    },
+    "Schedule" : {
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Programmation"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.2"
+}
