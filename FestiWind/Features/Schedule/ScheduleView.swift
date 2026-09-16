@@ -11,8 +11,7 @@ struct ScheduleView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.backgroundBlue
-                    .ignoresSafeArea()
+                BackgroundView()
                 ScrollView {
                     VStack {
                         ScheduleCard()

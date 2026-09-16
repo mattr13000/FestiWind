@@ -12,8 +12,7 @@ struct RegisterView: View {
     var body: some View {
         NavigationStack {
         ZStack {
-            Color.backgroundBlue
-                .ignoresSafeArea()
+            BackgroundView()
                 VStack {
                     Spacer()
                     VStack(spacing: 20) {
