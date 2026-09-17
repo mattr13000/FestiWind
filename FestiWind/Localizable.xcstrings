@@ -119,9 +119,6 @@
         }
       }
     },
-    "Book now" : {
-
-    },
     "common.cancel" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -164,6 +161,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Email"
+          }
+        }
+      }
+    },
+    "common.feature_placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Coming soon"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "À venir"
           }
         }
       }
@@ -267,20 +281,7 @@
     "Festi Wind" : {
 
     },
-    "Home" : {
-      "localizations" : {
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Accueil"
-          }
-        }
-      }
-    },
     "Kite surf" : {
-
-    },
-    "Name" : {
 
     },
     "navTitle.bookings" : {
@@ -302,6 +303,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Mie Prenotazioni"
+          }
+        }
+      }
+    },
+    "navTitle.profile" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profile"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Profile"
           }
         }
       }
@@ -372,9 +396,6 @@
           }
         }
       }
-    },
-    "Surname" : {
-
     }
   },
   "version" : "1.2"
