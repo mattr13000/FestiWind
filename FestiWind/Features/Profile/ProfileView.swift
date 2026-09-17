@@ -14,7 +14,7 @@ struct ProfileView: View {
                 Color.backgroundBlue
                     .ignoresSafeArea()
                 VStack {
-                    Text("Coming soon")
+                    Text(.commonFeaturePlaceholder)
                         .font(.title2)
                 }
                 .navigationTitle(.navTitleProfile)

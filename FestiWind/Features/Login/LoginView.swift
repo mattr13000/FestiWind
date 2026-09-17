@@ -17,7 +17,7 @@ struct LoginView: View {
                     HomeBackgroundImageView()
                     VStack {
                         Spacer()
-                        Text("Festi Wind")
+                        Text(.appTitle)
                             .font(.custom("Shalimar-Regular", size: 80))
                             .padding(.bottom, 60)
                         VStack (spacing: 16){
