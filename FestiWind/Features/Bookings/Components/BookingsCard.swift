@@ -16,7 +16,7 @@ struct BookingsCard: View {
                     .fontWeight(.bold)
                     .foregroundColor(.black)
                 Spacer()
-                Text("Confirmed")
+                Text(.bookingsStatusConfirmed)
                     .font(.subheadline)
                     .foregroundColor(.gray)
             }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ScheduleCard: View {
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text("Kite surf")
@@ -25,10 +26,16 @@ struct ScheduleCard: View {
             
             HStack {
                 Spacer()
-                Text("Remaining places: 25")
-                    .font(.subheadline)
-                    .foregroundColor(.gray)
+                
+                Text(.scheduleRemainingSpots)
+                
+                // DONT FORGET TO GRAY BUTTON IF THIS = 0 LATER !!
+                
+                Text("0")
+                    
             }
+            .font(.subheadline)
+                .foregroundColor(.gray)
             GlassButtonView(
                 buttonText: .scheduleBookPrompt,
                 frameMaxWidth: .infinity,

@@ -1,8 +1,34 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "0" : {
+
+    },
     "11 pm to 12 pm" : {
 
+    },
+    "app.title" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Festi Wind"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Festi Wind"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Festi Wind"
+          }
+        }
+      }
     },
     "auth.already_registered_prompt" : {
       "extractionState" : "manual",
@@ -119,6 +145,29 @@
         }
       }
     },
+    "bookings.status_confirmed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirmed"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirmé"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confermato"
+          }
+        }
+      }
+    },
     "common.cancel" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -196,6 +245,12 @@
             "state" : "translated",
             "value" : "Nom"
           }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cognome"
+          }
         }
       }
     },
@@ -259,27 +314,14 @@
             "state" : "translated",
             "value" : "Prénom"
           }
-        }
-      }
-    },
-    "Confirmed" : {
-      "localizations" : {
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Confirmé"
-          }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Confermato"
+            "value" : "Nome"
           }
         }
       }
-    },
-    "Festi Wind" : {
-
     },
     "Kite surf" : {
 
@@ -364,22 +406,6 @@
         }
       }
     },
-    "Remaining places: 25" : {
-      "localizations" : {
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Places restantes: 25"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Posti rimanenti: 25"
-          }
-        }
-      }
-    },
     "schedule.book_prompt" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -393,6 +419,29 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Réserver"
+          }
+        }
+      }
+    },
+    "schedule.remaining_spots" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Remaining spots :"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Places restantes :"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Posti rimanenti :"
           }
         }
       }
