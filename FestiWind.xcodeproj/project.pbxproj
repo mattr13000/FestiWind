@@ -8,13 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		87C8319C30581FC80032A6F3 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 87C8319B30581FC80032A6F3 /* .gitignore */; };
-		87EC98AA30597A4B005CFBFF /* NOTES.md in Sources */ = {isa = PBXBuildFile; fileRef = 87EC98A930597A40005CFBFF /* NOTES.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		87C8318D30581F960032A6F3 /* FestiWind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FestiWind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87C8319B30581FC80032A6F3 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		87EC98A930597A40005CFBFF /* NOTES.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = NOTES.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -53,7 +51,6 @@
 			isa = PBXGroup;
 			children = (
 				87C8319B30581FC80032A6F3 /* .gitignore */,
-				87EC98A930597A40005CFBFF /* NOTES.md */,
 				87C8318F30581F960032A6F3 /* FestiWind */,
 				87C8318E30581F960032A6F3 /* Products */,
 			);
@@ -144,7 +141,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87EC98AA30597A4B005CFBFF /* NOTES.md in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
