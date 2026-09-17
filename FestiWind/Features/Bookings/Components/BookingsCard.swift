@@ -29,7 +29,7 @@ struct BookingsCard: View {
             .padding(.bottom, 20)
             .foregroundColor(.black)
             GlassButtonView(
-                buttonText: "Cancel",
+                buttonText: .commonCancel,
                 frameMaxWidth: .infinity,
                 frameMaxHeight: 1,
                 opacity: 0.3,

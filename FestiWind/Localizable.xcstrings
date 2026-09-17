@@ -4,12 +4,246 @@
     "11 pm to 12 pm" : {
 
     },
-    "Already have an account ?" : {
+    "auth.already_registered_prompt" : {
+      "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Already have an account ?"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Déjà inscrit ?"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Già iscritto ?"
+          }
+        }
+      }
+    },
+    "auth.forgot_pasword" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Forgot Password ?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mot de passe oublié ?"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dimenticato la password ?"
+          }
+        }
+      }
+    },
+    "auth.login" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Login"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se connecter"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Login"
+          }
+        }
+      }
+    },
+    "auth.no_account_prompt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Don't have an account yet ?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pas encore de compte ?"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Non hai ancora un account ?"
+          }
+        }
+      }
+    },
+    "auth.register" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Register"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "S’inscrire"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registro"
+          }
+        }
+      }
+    },
+    "Book now" : {
+
+    },
+    "common.cancel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Annuler"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancellare"
+          }
+        }
+      }
+    },
+    "common.email_placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Email"
+          }
+        }
+      }
+    },
+    "common.name_placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Name"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nom"
+          }
+        }
+      }
+    },
+    "common.password_placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Password"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mot de passe"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Password"
+          }
+        }
+      }
+    },
+    "common.pw_confirm_placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirm password"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confirmer le mot de passe"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confermare la password"
+          }
+        }
+      }
+    },
+    "common.surname_placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Surname"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prénom"
           }
         }
       }
@@ -21,15 +255,11 @@
             "state" : "translated",
             "value" : "Confirmé"
           }
-        }
-      }
-    },
-    "Don't have an account yet ?" : {
-      "localizations" : {
-        "fr" : {
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pas encore de compte ?"
+            "value" : "Confermato"
           }
         }
       }
@@ -50,24 +280,18 @@
     "Kite surf" : {
 
     },
-    "My bookings" : {
+    "Name" : {
+
+    },
+    "navTitle.bookings" : {
+      "extractionState" : "manual",
       "localizations" : {
-        "fr" : {
+        "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mes réservations"
+            "value" : "My Bookings"
           }
         },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mie prenotazioni"
-          }
-        }
-      }
-    },
-    "My Bookings" : {
-      "localizations" : {
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -82,12 +306,36 @@
         }
       }
     },
-    "Register" : {
+    "navTitle.schedule" : {
+      "extractionState" : "manual",
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schedule"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "S’inscrire"
+            "value" : "Programmation"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Programma"
+          }
+        }
+      }
+    },
+    "placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Placeholder"
           }
         }
       }
@@ -99,18 +347,34 @@
             "state" : "translated",
             "value" : "Places restantes: 25"
           }
-        }
-      }
-    },
-    "Schedule" : {
-      "localizations" : {
-        "fr" : {
+        },
+        "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Programmation"
+            "value" : "Posti rimanenti: 25"
           }
         }
       }
+    },
+    "schedule.book_prompt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Book now"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réserver"
+          }
+        }
+      }
+    },
+    "Surname" : {
+
     }
   },
   "version" : "1.2"

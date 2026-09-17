@@ -24,7 +24,7 @@ struct BookingsView: View {
                         BookingsCard()
                         BookingsCard()
                     }
-                    .navigationTitle("My bookings")
+                    .navigationTitle(.navtitleBookings)
                 }
                 
             }

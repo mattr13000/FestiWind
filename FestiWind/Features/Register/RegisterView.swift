@@ -18,25 +18,25 @@ struct RegisterView: View {
                     Spacer()
                     VStack(spacing: 20) {
                         HStack {
-                            TextFieldView(textFieldContent: $name, placeholderText: "Name", frameMaxWidth: 150, isSecure: false)
+                            TextFieldView(textFieldContent: $name, placeholderText: .commonNamePlaceholder, frameMaxWidth: 150, isSecure: false)
                             Spacer()
-                            TextFieldView(textFieldContent: $name, placeholderText: "Surname", frameMaxWidth: 150, isSecure: false)
+                            TextFieldView(textFieldContent: $name, placeholderText: .commonSurnamePlaceholder, frameMaxWidth: 150, isSecure: false)
                             
                         }
                         .frame(maxWidth: 363)
-                        TextFieldView(textFieldContent: $name, placeholderText: "Email", frameMaxWidth: 330, isSecure: false)
-                        TextFieldView(textFieldContent: $name, placeholderText: "Password", frameMaxWidth: 330, isSecure: true)
-                        TextFieldView(textFieldContent: $name, placeholderText: "Confirm Password", frameMaxWidth: 330, isSecure: true)
+                        TextFieldView(textFieldContent: $name, placeholderText: .commonEmailPlaceholder, frameMaxWidth: 330, isSecure: false)
+                        TextFieldView(textFieldContent: $name, placeholderText: .commonPasswordPlaceholder, frameMaxWidth: 330, isSecure: true)
+                        TextFieldView(textFieldContent: $name, placeholderText: .commonPwConfirmPlaceholder, frameMaxWidth: 330, isSecure: true)
                     }
                     Spacer()
-                    GlassButtonView(buttonText: "Register", frameMaxWidth: 280, opacity: 0.3, textColor: .textPrimary, backgroundColor: .buttonColorActive)
+                    GlassButtonView(buttonText: .authRegister, frameMaxWidth: 280, opacity: 0.3, textColor: .textPrimary, backgroundColor: .buttonColorActive)
                     HStack {
-                        Text("Already have an account ?")
-                        TextButtonView(buttonText: "Log in")
+                        Text(.authAlreadyRegisteredPrompt)
+                        TextButtonView(buttonText: .authLogin)
                     }
                     Spacer()
                 }
-                .navigationTitle("Register")
+                .navigationTitle(.authRegister)
                 
             }
             

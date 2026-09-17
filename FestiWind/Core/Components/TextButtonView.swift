@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TextButtonView: View {
-    var buttonText: String
+    var buttonText: LocalizedStringResource
     var body: some View {
         Button {}
         label: {
@@ -21,5 +21,6 @@ struct TextButtonView: View {
 }
 
 #Preview {
-    TextButtonView(buttonText: "Placeholder")
+    TextButtonView(buttonText: .placeholder)
 }
+

@@ -14,11 +14,11 @@ struct ContentView: View {
                 LoginView()
             }
             
-            Tab("Schedule", systemImage: "book") {
+            Tab(.navTitleSchedule, systemImage: "book") {
                 ScheduleView()
             }
             
-            Tab("My Bookings", systemImage: "calendar") {
+            Tab(.navtitleBookings, systemImage: "calendar") {
                 BookingsView()
             }
         }

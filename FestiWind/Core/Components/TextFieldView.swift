@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TextFieldView: View {
     @Binding var textFieldContent: String
-    var placeholderText: String
+    var placeholderText: LocalizedStringResource
     var frameMaxWidth: CGFloat
     var isSecure: Bool
     var body: some View {
@@ -24,5 +24,5 @@ struct TextFieldView: View {
 }
 
 #Preview {
-    TextFieldView(textFieldContent: .constant(""), placeholderText: "Placeholder", frameMaxWidth: 330, isSecure: false)
+    TextFieldView(textFieldContent: .constant(""), placeholderText: .placeholder, frameMaxWidth: 330, isSecure: false)
 }
