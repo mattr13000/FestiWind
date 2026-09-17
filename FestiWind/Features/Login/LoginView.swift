@@ -21,21 +21,21 @@ struct LoginView: View {
                             .font(.custom("Shalimar-Regular", size: 80))
                             .padding(.bottom, 60)
                         VStack (spacing: 16){
-                            TextFieldView(textFieldContent: $email, placeholderText: "Email", frameMaxWidth: 330, isSecure: false)
-                            TextFieldView(textFieldContent: $password, placeholderText: "Password", frameMaxWidth: 330, isSecure: true)
+                            TextFieldView(textFieldContent: $email, placeholderText: .commonEmailPlaceholder, frameMaxWidth: 330, isSecure: false)
+                            TextFieldView(textFieldContent: $password, placeholderText: .commonPasswordPlaceholder, frameMaxWidth: 330, isSecure: true)
                             HStack {
-                                TextButtonView(buttonText: "Forgot Password ?")
+                                TextButtonView(buttonText: .authForgotPasword)
                             }
                         }
                         Spacer()
-                        GlassButtonView(buttonText: "Log In", frameMaxWidth: 280, opacity: 0.3, textColor: .textPrimary, backgroundColor: .buttonColorActive)
+                        GlassButtonView(buttonText: .authLogin, frameMaxWidth: 280, opacity: 0.3, textColor: .textPrimary, backgroundColor: .buttonColorActive)
                         HStack {
-                            Text("Don't have an account yet ?")
+                            Text(.authNoAccountPrompt)
                                 .font(.subheadline)
                                 
                             Button {}
                             label: {
-                                Text("Register")
+                                Text(.authRegister)
                                     .font(.subheadline)
                                     .underline()
                                     .foregroundStyle(.textLink)

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct GlassButtonView: View {
     
-    var buttonText: String
+    var buttonText: LocalizedStringResource
     var frameMaxWidth: CGFloat
     var frameMaxHeight: CGFloat?
     var opacity: CGFloat
@@ -30,5 +30,5 @@ struct GlassButtonView: View {
 }
 
 #Preview {
-    GlassButtonView(buttonText: "Placeholder", frameMaxWidth: 280, opacity: 0.3, textColor: .textPrimary, backgroundColor: .buttonColorActive)
+    GlassButtonView(buttonText: .placeholder, frameMaxWidth: 280, opacity: 0.3, textColor: .textPrimary, backgroundColor: .buttonColorActive)
 }

@@ -30,7 +30,7 @@ struct ScheduleCard: View {
                     .foregroundColor(.gray)
             }
             GlassButtonView(
-                buttonText: "Book now",
+                buttonText: .scheduleBookPrompt,
                 frameMaxWidth: .infinity,
                 frameMaxHeight: 1,
                 opacity: 0.3,

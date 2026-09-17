@@ -22,7 +22,7 @@ struct ScheduleView: View {
                         ScheduleCard()
                     }
                 }
-                .navigationTitle("Schedule")
+                .navigationTitle(.navTitleSchedule)
             }
         }
     }
