@@ -11,29 +11,36 @@ struct RegisterView: View {
     @State private var name: String = ""
     var body: some View {
         NavigationStack {
-            VStack {
-                Spacer()
-                VStack(spacing: 20) {
-                    HStack {
-                        TextFieldView(textFieldContent: $name, frameMaxWidth: 150)
-                        Spacer()
-                        TextFieldView(textFieldContent: $name, frameMaxWidth: 150)
+        ZStack {
+            BackgroundView()
+                VStack {
+                    Spacer()
+                    VStack(spacing: 20) {
+                        HStack {
+                            TextFieldView(textFieldContent: $name, placeholderText: .commonNamePlaceholder, frameMaxWidth: 150, isSecure: false)
+                            Spacer()
+                            TextFieldView(textFieldContent: $name, placeholderText: .commonSurnamePlaceholder, frameMaxWidth: 150, isSecure: false)
+                            
+                        }
+                        .frame(maxWidth: 363)
+                        TextFieldView(textFieldContent: $name, placeholderText: .commonEmailPlaceholder, frameMaxWidth: 330, isSecure: false)
+                        TextFieldView(textFieldContent: $name, placeholderText: .commonPasswordPlaceholder, frameMaxWidth: 330, isSecure: true)
+                        TextFieldView(textFieldContent: $name, placeholderText: .commonPwConfirmPlaceholder, frameMaxWidth: 330, isSecure: true)
                     }
-                    .frame(maxWidth: 330)
-                    TextFieldView(textFieldContent: $name, frameMaxWidth: 330)
-                    TextFieldView(textFieldContent: $name, frameMaxWidth: 330)
-                    TextFieldView(textFieldContent: $name, frameMaxWidth: 330)
+                    Spacer()
+                    GlassButtonView(buttonText: .authRegister, frameMaxWidth: 280, opacity: 0.3, textColor: .textPrimary, backgroundColor: .buttonColorActive)
+                    HStack {
+                        Text(.authAlreadyRegisteredPrompt)
+                        TextButtonView(buttonText: .authLogin)
+                    }
+                    Spacer()
                 }
-                Spacer()
-                GlassButtonView(buttonText: "Register", frameMaxWidth: 280, opacity: 0.3, textColor: .textPrimary, backgroundColor: .buttonColorActive)
-                HStack {
-                    Text("Already have an account ?")
-                    TextButtonView(buttonText: "Log in")
-                }
-                Spacer()
+                .navigationTitle(.authRegister)
+                
             }
-            .navigationTitle("Register")
+            
         }
+        
     }
 }
 

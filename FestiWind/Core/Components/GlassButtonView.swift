@@ -9,8 +9,9 @@ import SwiftUI
 
 struct GlassButtonView: View {
     
-    var buttonText: String
+    var buttonText: LocalizedStringResource
     var frameMaxWidth: CGFloat
+    var frameMaxHeight: CGFloat?
     var opacity: CGFloat
     var textColor: Color
     var backgroundColor: Color
@@ -21,7 +22,7 @@ struct GlassButtonView: View {
             Text(buttonText)
                 .font(.headline)
                 .foregroundStyle(textColor)
-                .frame(maxWidth: frameMaxWidth)
+                .frame(maxWidth: frameMaxWidth, maxHeight: frameMaxHeight)
                 .padding()
                 .glassEffect(.regular.tint(backgroundColor.opacity(opacity)))
         }
@@ -29,5 +30,5 @@ struct GlassButtonView: View {
 }
 
 #Preview {
-    GlassButtonView(buttonText: "Placeholder", frameMaxWidth: 280, opacity: 0.3, textColor: .textPrimary, backgroundColor: .buttonColorActive)
+    GlassButtonView(buttonText: .placeholder, frameMaxWidth: 280, opacity: 0.3, textColor: .textPrimary, backgroundColor: .buttonColorActive)
 }

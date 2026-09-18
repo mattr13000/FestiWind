@@ -4,6 +4,7 @@
 
 ## User settings
 xcuserdata/
+NOTES.md
 
 ## Obj-C/Swift specific
 *.hmap
@@ -59,3 +60,5 @@ build/
 .Trashes
 Icon?
 TextMate/
+
+

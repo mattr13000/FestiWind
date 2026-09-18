@@ -9,17 +9,20 @@ import SwiftUI
 
 struct TextFieldView: View {
     @Binding var textFieldContent: String
+    var placeholderText: LocalizedStringResource
     var frameMaxWidth: CGFloat
+    var isSecure: Bool
     var body: some View {
-        TextField("Email", text: $textFieldContent)
-            .padding()
-            .background(.white)
-            .cornerRadius(5)
-            .frame(maxWidth: frameMaxWidth)
-            .shadow(color: .textSecondary, radius: 1, x: 0, y: 1)
+        if isSecure {
+            SecureField(placeholderText, text: $textFieldContent)
+                .textFieldModifier(frameMaxWidth: frameMaxWidth)
+        } else {
+            TextField(placeholderText, text: $textFieldContent)
+                .textFieldModifier(frameMaxWidth: frameMaxWidth)
+        }
     }
 }
 
 #Preview {
-    TextFieldView(textFieldContent: .constant("Placeholder"), frameMaxWidth: 330)
+    TextFieldView(textFieldContent: .constant(""), placeholderText: .placeholder, frameMaxWidth: 330, isSecure: false)
 }
