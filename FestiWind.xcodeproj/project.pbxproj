@@ -111,10 +111,7 @@
 				en,
 				Base,
 				fr,
-<<<<<<< Updated upstream
 				it,
-=======
->>>>>>> Stashed changes
 			);
 			mainGroup = 87C8318430581F960032A6F3;
 			minimizedProjectReferenceProxies = 1;
