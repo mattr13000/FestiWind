@@ -37,7 +37,7 @@ struct ScheduleCard: View {
             .font(.subheadline)
                 .foregroundColor(.gray)
             GlassButtonView(
-                buttonText: .scheduleBookPrompt,
+                buttonText: .commonBookPrompt,
                 frameMaxWidth: .infinity,
                 frameMaxHeight: 1,
                 opacity: 0.3,

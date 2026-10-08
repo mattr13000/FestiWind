@@ -168,6 +168,23 @@
         }
       }
     },
+    "common.book_prompt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Book now"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réserver"
+          }
+        }
+      }
+    },
     "common.cancel" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -323,7 +340,33 @@
         }
       }
     },
+    "Description :" : {
+
+    },
+    "detail.book_placeholder" : {
+      "extractionState" : "manual"
+    },
+    "detail.description_placeholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Description :"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Descritpion :"
+          }
+        }
+      }
+    },
     "Kite surf" : {
+
+    },
+    "Le kitesurf, ou planche arétractée a était créer dans les années 2000." : {
 
     },
     "navTitle.bookings" : {
@@ -406,22 +449,8 @@
         }
       }
     },
-    "schedule.book_prompt" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Book now"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Réserver"
-          }
-        }
-      }
+    "réserver" : {
+
     },
     "schedule.remaining_spots" : {
       "extractionState" : "manual",
