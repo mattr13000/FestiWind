@@ -340,9 +340,6 @@
         }
       }
     },
-    "Description :" : {
-
-    },
     "detail.book_placeholder" : {
       "extractionState" : "manual"
     },
@@ -448,9 +445,6 @@
           }
         }
       }
-    },
-    "réserver" : {
-
     },
     "schedule.remaining_spots" : {
       "extractionState" : "manual",
