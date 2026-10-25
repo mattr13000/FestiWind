@@ -22,11 +22,9 @@ final class LoginViewModel {
             isLoading = false
         }
         do {
-            // Stuff
             let token = try await apiClient.login(email: email, password: password)
             try await KeychainManager.saveToken(token: token)
             isAuthenticated = true
-            
         }
         catch {
             errorMessage = "Login failed"
