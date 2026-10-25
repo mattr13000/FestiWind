@@ -31,6 +31,7 @@ struct KeychainManager {
         var itemResult: AnyObject?
         
         let status = SecItemCopyMatching(query as CFDictionary, &itemResult)
+        
         guard status == errSecSuccess else {
             if status == errSecItemNotFound {
                 return nil
@@ -48,7 +49,7 @@ struct KeychainManager {
     
     static func saveToken(token: String) async throws {
         guard let tokenData = token.data(using: .utf8) else {
-            throw KeychainError.unexpectedPasswordData
+            throw KeychainError.unexpectedData
         }
         
         var query: [String: Any] = [
@@ -60,6 +61,19 @@ struct KeychainManager {
         let status = SecItemAdd(query as CFDictionary, nil)
         
         guard status == errSecSuccess else {
+            throw KeychainError.unhandledError(status: status)
+        }
+    }
+    
+    static func deleteToken() async throws {
+        var query: [String: Any] = [
+            kSecClass as String: kSecClassGenericPassword,
+            kSecAttrAccount as String: KeychainList.authToken.rawValue
+        ]
+        
+        let status = SecItemDelete(query as CFDictionary)
+        
+        guard status == errSecSuccess || status == errSecItemNotFound else {
             throw KeychainError.unhandledError(status: status)
         }
     }
