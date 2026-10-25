@@ -21,7 +21,7 @@ enum KeychainList: String {
 
 struct KeychainManager {
     static func getToken() async throws -> String? {
-        var query: [String: Any] = [
+        let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrAccount as String: KeychainList.authToken.rawValue,
             kSecReturnData as String: true,
@@ -52,7 +52,7 @@ struct KeychainManager {
             throw KeychainError.unexpectedData
         }
         
-        var query: [String: Any] = [
+        let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrAccount as String: KeychainList.authToken.rawValue,
             kSecValueData as String: tokenData
@@ -66,7 +66,7 @@ struct KeychainManager {
     }
     
     static func deleteToken() async throws {
-        var query: [String: Any] = [
+        let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrAccount as String: KeychainList.authToken.rawValue
         ]

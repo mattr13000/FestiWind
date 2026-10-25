@@ -53,6 +53,23 @@
         }
       }
     },
+    "auth.error.loginFailed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Login failed"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Échec de l’authentication"
+          }
+        }
+      }
+    },
     "auth.forgot_pasword" : {
       "extractionState" : "manual",
       "localizations" : {

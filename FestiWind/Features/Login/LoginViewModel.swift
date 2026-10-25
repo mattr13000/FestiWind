@@ -27,7 +27,7 @@ final class LoginViewModel {
             isAuthenticated = true
         }
         catch {
-            errorMessage = "Login failed"
+            errorMessage = ""
             isAuthenticated = false
         }
     }
