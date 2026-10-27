@@ -13,7 +13,15 @@ struct RootView: View {
     var body: some View {
         ZStack {
             HomeBackgroundImageView()
-            Text(authManager.authState.statusMessage)
+            VStack {
+                Text(.appTitle)
+                    .font(.custom("Shalimar-Regular", size: 80))
+                Text(authManager.authState.statusMessage)
+                    .font(.title)
+            }
+        }
+        .task {
+            await authManager.checkStatus()
         }
     }
 }

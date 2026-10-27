@@ -13,21 +13,23 @@ final class AuthManager {
     var jwtToken: String?
     var errorMessage: String?
     
+    private let minLoginDuration: Duration = .milliseconds(800)
+    
     func checkStatus() async {
+        authState = .checking
+        
+        async let minDelay = Task.sleep(for: minLoginDuration)
+        
         do {
             let token = try await KeychainManager.getToken()
-            if let token {
-                authState = .authenticated
-                jwtToken = token
-            } else {
-                authState = .unauthenticated
-                jwtToken = nil
-            }
         }
         catch {
-            authState = .unauthenticated
             jwtToken = nil
             errorMessage = "No token, login required, redirecting."
         }
+        
+        try? await minDelay
+        
+        authState = jwtToken == nil ? .unauthenticated : .authenticated
     }
 }
