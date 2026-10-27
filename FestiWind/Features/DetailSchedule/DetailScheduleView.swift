@@ -45,7 +45,7 @@ struct DetailScheduleView: View {
                             opacity: 0.3,
                             textColor: .textPrimary,
                             backgroundColor: .buttonColorCancel
-                        )
+                        ){}
                     }
                     .padding(36)
                     .background(

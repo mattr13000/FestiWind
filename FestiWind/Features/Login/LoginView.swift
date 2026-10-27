@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LoginView: View {
+    @Environment(AuthManager.self) var authManager
     @Environment(LoginViewModel.self) var loginVM
     @State private var email: String = ""
     @State private var password: String = ""
@@ -28,7 +29,18 @@ struct LoginView: View {
                             }
                         }
                         Spacer()
-                        GlassButtonView(buttonText: .authLogin, frameMaxWidth: 280, opacity: 0.3, textColor: .textPrimary, backgroundColor: .buttonColorActive)
+                        GlassButtonView(
+                            buttonText: .authLogin,
+                            frameMaxWidth: 280,
+                            opacity: 0.3,
+                            textColor: .textPrimary,
+                            backgroundColor: .buttonColorActive)
+                        {
+                            Task {
+                                try await authManager.login(email: email, password: password)
+                            }
+                        }
+                        .disabled(authManager.isLoggingIn)
                         HStack {
                             Text(.authNoAccountPrompt)
                                 .font(.subheadline)
@@ -49,5 +61,6 @@ struct LoginView: View {
 
 #Preview {
     LoginView()
+        .environment(AuthManager())
         .environment(LoginViewModel())
 }
