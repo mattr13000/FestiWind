@@ -55,13 +55,27 @@ struct KeychainManager {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrAccount as String: KeychainList.authToken.rawValue,
-            kSecValueData as String: tokenData
         ]
+        // We copy the query then add the token
+        var queryWithToken = query
+        queryWithToken[kSecValueData as String] = tokenData
         
-        let status = SecItemAdd(query as CFDictionary, nil)
+        let status = SecItemAdd(queryWithToken as CFDictionary, nil)
         
-        guard status == errSecSuccess else {
-            throw KeychainError.unhandledError(status: status)
+        switch status {
+            // If the key doesn't exist yet, we good we create it
+            case errSecSuccess:
+                return
+            
+            // If we find a matching key, we update it
+            case errSecDuplicateItem:
+                let attributes: [String : Any] = [kSecValueData as String: tokenData]
+                let updateStatus = SecItemUpdate(query as CFDictionary, attributes as CFDictionary)
+                guard updateStatus == errSecSuccess else {
+                    throw KeychainError.unhandledError(status: status)
+                }
+            default:
+                throw KeychainError.unhandledError(status: status)
         }
     }
     
