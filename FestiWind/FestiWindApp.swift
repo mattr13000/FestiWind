@@ -10,12 +10,10 @@ import SwiftUI
 @main
 struct FestiWindApp: App {
     @State private var authManager = AuthManager()
-    @State private var loginVM = LoginViewModel()
     var body: some Scene {
         WindowGroup {
             RootView()
                 .environment(authManager)
-                .environment(loginVM)
         }
     }
 }

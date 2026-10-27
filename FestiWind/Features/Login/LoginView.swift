@@ -9,7 +9,6 @@ import SwiftUI
 
 struct LoginView: View {
     @Environment(AuthManager.self) var authManager
-    @Environment(LoginViewModel.self) var loginVM
     @State private var email: String = ""
     @State private var password: String = ""
     
@@ -63,5 +62,4 @@ struct LoginView: View {
 #Preview {
     LoginView()
         .environment(AuthManager())
-        .environment(LoginViewModel())
 }
