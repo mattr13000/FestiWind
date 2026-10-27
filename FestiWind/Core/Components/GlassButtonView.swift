@@ -18,8 +18,7 @@ struct GlassButtonView: View {
     var action: () -> Void
     
     var body: some View {
-        Button {}
-        label: {
+        Button(action: action) {
             Text(buttonText)
                 .font(.headline)
                 .foregroundStyle(textColor)

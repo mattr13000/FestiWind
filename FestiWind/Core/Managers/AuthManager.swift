@@ -20,8 +20,9 @@ final class AuthManager {
     
 
     
-    func login(email: String, password: String) async throws {
+    func login(email: String, password: String) async {
         isLoggingIn = true
+        errorMessage = nil
         
         async let minDelay = Task.sleep(for: minLoginDuration)
         

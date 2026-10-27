@@ -29,15 +29,16 @@ struct LoginView: View {
                             }
                         }
                         Spacer()
+                        Text(authManager.errorMessage ?? "")
                         GlassButtonView(
                             buttonText: .authLogin,
                             frameMaxWidth: 280,
                             opacity: 0.3,
                             textColor: .textPrimary,
-                            backgroundColor: .buttonColorActive)
+                            backgroundColor: authManager.isLoggingIn ? .buttonColorInactive : .buttonColorActive)
                         {
                             Task {
-                                try await authManager.login(email: email, password: password)
+                                await authManager.login(email: email, password: password)
                             }
                         }
                         .disabled(authManager.isLoggingIn)
