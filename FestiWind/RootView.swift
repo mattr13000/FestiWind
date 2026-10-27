@@ -8,14 +8,17 @@
 import SwiftUI
 
 struct RootView: View {
+
+    @Environment(AuthManager.self) private var authManager
     var body: some View {
         ZStack {
             HomeBackgroundImageView()
-            Text("Authentication ...")
+            Text(authManager.authState.statusMessage)
         }
     }
 }
 
 #Preview {
     RootView()
+        .environment(AuthManager())
 }
