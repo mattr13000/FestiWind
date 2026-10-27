@@ -12,14 +12,17 @@ struct RootView: View {
     @Environment(AuthManager.self) private var authManager
     var body: some View {
         ZStack {
-            HomeBackgroundImageView()
-            VStack {
-                Text(.appTitle)
-                    .font(.custom("Shalimar-Regular", size: 80))
-                Text(authManager.authState.statusMessage)
-                    .font(.title)
+            switch authManager.authState {
+            case .unknown, .checking:
+                LoadingView(message: authManager.authState.statusMessage)
+            case .unauthenticated:
+                LoginView()
+            case .authenticated:
+                TabBarView()
             }
         }
+        .transition(.opacity)
+        .animation(.easeInOut(duration: 0.4), value: authManager.authState)
         .task {
             await authManager.checkStatus()
         }

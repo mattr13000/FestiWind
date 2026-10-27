@@ -21,7 +21,7 @@ final class AuthManager {
         async let minDelay = Task.sleep(for: minLoginDuration)
         
         do {
-            let token = try await KeychainManager.getToken()
+            jwtToken = try await KeychainManager.getToken()
         }
         catch {
             jwtToken = nil
