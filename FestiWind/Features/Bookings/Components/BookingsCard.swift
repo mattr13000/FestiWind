@@ -35,7 +35,7 @@ struct BookingsCard: View {
                 opacity: 0.3,
                 textColor: .textPrimary,
                 backgroundColor: .buttonColorCancel
-            )
+            ){}
         }
         .padding(30)
         .background(

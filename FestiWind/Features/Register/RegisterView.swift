@@ -28,7 +28,7 @@ struct RegisterView: View {
                         TextFieldView(textFieldContent: $name, placeholderText: .commonPwConfirmPlaceholder, frameMaxWidth: 330, isSecure: true)
                     }
                     Spacer()
-                    GlassButtonView(buttonText: .authRegister, frameMaxWidth: 280, opacity: 0.3, textColor: .textPrimary, backgroundColor: .buttonColorActive)
+                    GlassButtonView(buttonText: .authRegister, frameMaxWidth: 280, opacity: 0.3, textColor: .textPrimary, backgroundColor: .buttonColorActive){}
                     HStack {
                         Text(.authAlreadyRegisteredPrompt)
                         TextButtonView(buttonText: .authLogin)
