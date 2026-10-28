@@ -57,7 +57,6 @@ struct KeychainManager {
             kSecAttrAccount as String: KeychainList.authToken.rawValue,
         ]
         
-        // Commenting this because it's still blurry after making it work
         // SecItemUpdate needs query without data to find the item
         var queryWithToken = query
         queryWithToken[kSecValueData as String] = tokenData
