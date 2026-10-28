@@ -8,31 +8,26 @@
 
 import Foundation
 
-struct LoginRequest: Encodable {
-    let email: String
-    let password: String
-}
-
-struct AuthResponse: Decodable {
-    let token: String
-}
-
 struct APIClient {
     private let baseURL = URL(string: "http://127.0.0.1:8080")!
 
-    func login(email: String, password: String) async throws -> String {
-        let url = baseURL.appendingPathComponent("users/login")
+    func request<T: Decodable>(
+        _ path: String,
+        method: String = "GET",
+        body: (any Encodable)? = nil
+    ) async throws -> T {
+        let url = baseURL.appendingPathComponent(path)
 
         var request = URLRequest(url: url)
-        request.httpMethod = "POST"
+        request.httpMethod = method
         request.setValue(
             "application/json",
             forHTTPHeaderField: "Content-Type"
         )
 
-        request.httpBody = try JSONEncoder().encode(
-            LoginRequest(email: email, password: password)
-        )
+        if let body {
+            request.httpBody = try JSONEncoder().encode(body)
+        }
 
         let (data, response) = try await URLSession.shared.data(for: request)
 
@@ -51,11 +46,6 @@ struct APIClient {
             )
         }
 
-        let authResponse = try JSONDecoder().decode(
-            AuthResponse.self,
-            from: data
-        )
-
-        return authResponse.token
+        return try JSONDecoder().decode(T.self, from: data)
     }
 }
