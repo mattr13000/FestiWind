@@ -15,10 +15,10 @@ struct GlassButtonView: View {
     var opacity: CGFloat
     var textColor: Color
     var backgroundColor: Color
+    var action: () -> Void
     
     var body: some View {
-        Button {}
-        label: {
+        Button(action: action) {
             Text(buttonText)
                 .font(.headline)
                 .foregroundStyle(textColor)
@@ -30,5 +30,5 @@ struct GlassButtonView: View {
 }
 
 #Preview {
-    GlassButtonView(buttonText: .placeholder, frameMaxWidth: 280, opacity: 0.3, textColor: .textPrimary, backgroundColor: .buttonColorActive)
+    GlassButtonView(buttonText: .placeholder, frameMaxWidth: 280, opacity: 0.3, textColor: .textPrimary, backgroundColor: .buttonColorActive){}
 }
