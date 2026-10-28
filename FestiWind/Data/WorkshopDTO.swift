@@ -11,8 +11,8 @@ struct WorkshopDTO: Decodable {
     let id: UUID
     let name: String
     let description: String
-    let startTime: Date
-    let endTime: Date
+    //let startTime: Date
+    //let endTime: Date
     let capacityMax: Int
     let totalSubscribers: Int
     let category: String

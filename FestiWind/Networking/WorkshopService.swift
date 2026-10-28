@@ -14,7 +14,6 @@ struct WorkshopService {
             method: HTTPMethod.get.rawValue,
             body: nil
         )
-        print("salut \(response)")
         return response.map{Workshop($0)}
     }
     
