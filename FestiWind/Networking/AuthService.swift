@@ -22,7 +22,7 @@ struct AuthService {
     func login(email: String, password: String) async throws -> String {
         let response: AuthResponse = try await api.request(
             "users/login",
-            method: "POST",
+            method: HTTPMethod.post.rawValue,
             body: LoginRequest(email: email, password: password)
         )
         return response.token

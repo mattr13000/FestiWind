@@ -8,12 +8,21 @@
 
 import Foundation
 
+enum HTTPMethod: String {
+    case get = "GET"
+    case post = "POST"
+    case put = "PUT"
+    case patch = "PATCH"
+    case delete = "DELETE"
+}
+
+
 struct APIClient {
     private let baseURL = URL(string: "http://127.0.0.1:8080")!
 
     func request<T: Decodable>(
         _ path: String,
-        method: String = "GET",
+        method: String = HTTPMethod.get.rawValue,
         body: (any Encodable)? = nil
     ) async throws -> T {
         let url = baseURL.appendingPathComponent(path)
