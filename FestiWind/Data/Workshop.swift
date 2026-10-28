@@ -23,10 +23,10 @@ extension Workshop {
         self.id = dto.id
         self.name = dto.name
         self.description = dto.description
-        self.startTime = dto.start_time
-        self.endTime = dto.end_time
-        self.capacityMax = dto.capacity_max
-        self.totalSubscribers = dto.total_subscribers
+        self.startTime = dto.startTime
+        self.endTime = dto.endTime
+        self.capacityMax = dto.capacityMax
+        self.totalSubscribers = dto.totalSubscribers
         self.category = dto.category
     }
 }

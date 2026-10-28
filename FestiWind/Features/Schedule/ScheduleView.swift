@@ -8,22 +8,24 @@
 import SwiftUI
 
 struct ScheduleView: View {
+    @State private var scheduleVM = ScheduleViewModel()
     var body: some View {
         NavigationStack {
             ZStack {
                 BackgroundView()
                 ScrollView {
                     VStack {
-                        ScheduleCard()
-                        ScheduleCard()
-                        ScheduleCard()
-                        ScheduleCard()
-                        ScheduleCard()
-                        ScheduleCard()
+                        ForEach (scheduleVM.workshopList) { workshop in
+                            ScheduleCard(title: workshop.name, remainingSpots: (workshop.capacityMax - workshop.totalSubscribers))
+                        }
                     }
                 }
                 .navigationTitle(.navTitleSchedule)
             }
+        }
+        .task {
+            await scheduleVM.getWorkshopList()
+            print(scheduleVM.workshopList)
         }
     }
 }

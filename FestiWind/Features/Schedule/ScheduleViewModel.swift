@@ -9,5 +9,16 @@ import SwiftUI
 
 @Observable
 final class ScheduleViewModel {
-    let WorkshopList: [Work]
+    let workshopService = WorkshopService()
+    var workshopList: [Workshop] = []
+    var errorMessage: LocalizedStringResource?
+    
+    func getWorkshopList() async {
+        do {
+            workshopList = try await workshopService.getWorkshops()
+        }
+        catch {
+            errorMessage = .scheduleRequestError
+        }
+    }
 }

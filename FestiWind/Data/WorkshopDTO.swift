@@ -7,13 +7,13 @@
 
 import Foundation
 
-struct WorkshopDTO: Decodable, Identifiable {
+struct WorkshopDTO: Decodable {
     let id: UUID
     let name: String
     let description: String
-    let start_time: Date
-    let end_time: Date
-    let capacity_max: Int
-    let total_subscribers: Int
+    let startTime: Date
+    let endTime: Date
+    let capacityMax: Int
+    let totalSubscribers: Int
     let category: String
 }
