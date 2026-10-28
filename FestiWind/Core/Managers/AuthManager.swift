@@ -15,7 +15,7 @@ final class AuthManager {
     var errorMessage: LocalizedStringResource?
     var isLoggingIn: Bool = false
     
-    private let apiClient = APIClient()
+    private let authService = AuthService()
     private let minLoginDuration: Duration = .milliseconds(800)
     
     func checkStatus() async {
@@ -45,7 +45,7 @@ final class AuthManager {
             isLoggingIn = false
         }
         do {
-            let token = try await apiClient.login(email: email, password: password)
+            let token = try await authService.login(email: email, password: password)
             try await KeychainManager.saveToken(token: token)
             jwtToken = token
         }
