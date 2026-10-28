@@ -4,9 +4,6 @@
     "" : {
 
     },
-    "0" : {
-
-    },
     "11 pm to 12 pm" : {
 
     },
@@ -577,6 +574,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Posti rimanenti :"
+          }
+        }
+      }
+    },
+    "scheduleRequestError" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t get workshop list."
           }
         }
       }

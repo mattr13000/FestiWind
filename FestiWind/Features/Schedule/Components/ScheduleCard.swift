@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct ScheduleCard: View {
-    
+    var title: String
+    // var schedule: String
+    var remainingSpots: Int
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Kite surf")
+            Text(title)
                 .font(.title2)
                 .fontWeight(.bold)
                 .foregroundColor(.black)
@@ -31,7 +33,7 @@ struct ScheduleCard: View {
                 
                 // DONT FORGET TO GRAY BUTTON IF THIS = 0 LATER !!
                 
-                Text("0")
+                Text(String(remainingSpots))
                     
             }
             .font(.subheadline)
@@ -53,5 +55,5 @@ struct ScheduleCard: View {
 }
 
 #Preview {
-    ScheduleCard()
+    // ScheduleCard()
 }
