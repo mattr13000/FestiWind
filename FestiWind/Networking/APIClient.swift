@@ -22,7 +22,7 @@ struct APIClient {
 
     func request<T: Decodable>(
         _ path: String,
-        method: HTTPMethod = HTTPMethod.get,
+        method: HTTPMethod = .get,
         body: (any Encodable)? = nil
     ) async throws -> T {
         let url = baseURL.appendingPathComponent(path)
