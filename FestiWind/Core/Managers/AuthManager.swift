@@ -16,7 +16,7 @@ final class AuthManager {
     var isLoggingIn: Bool = false
     
     private let authService = AuthService()
-    let minLoginDuration: Duration = .milliseconds(800)
+    private let minLoginDuration: Duration = .milliseconds(800)
     
     func checkStatus() async {
         authState = .checking
