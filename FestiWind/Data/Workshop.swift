@@ -15,6 +15,7 @@ struct Workshop: Identifiable {
     //let endTime: Date
     let capacityMax: Int
     let totalSubscribers: Int
+    var remainingSlots: Int {capacityMax - totalSubscribers}
     let category: String
 }
 

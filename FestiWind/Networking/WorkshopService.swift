@@ -9,11 +9,7 @@ struct WorkshopService {
     private let api = APIClient()
  
     func getWorkshops() async throws -> [Workshop] {
-        let response: [WorkshopDTO] = try await api.request(
-            "workshops",
-            method: HTTPMethod.get.rawValue,
-            body: nil
-        )
+        let response: [WorkshopDTO] = try await api.request("workshops")
         return response.map{Workshop($0)}
     }
     

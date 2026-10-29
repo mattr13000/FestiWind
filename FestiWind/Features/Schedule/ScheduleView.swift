@@ -16,7 +16,8 @@ struct ScheduleView: View {
                 ScrollView {
                     VStack {
                         ForEach (scheduleVM.workshopList) { workshop in
-                            ScheduleCard(title: workshop.name, remainingSpots: (workshop.capacityMax - workshop.totalSubscribers))
+                            ScheduleCard(title: workshop.name,
+                                         remainingSpots: (workshop.remainingSlots))
                         }
                     }
                 }

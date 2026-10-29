@@ -9,7 +9,7 @@ import SwiftUI
 
 @Observable
 final class ScheduleViewModel {
-    let workshopService = WorkshopService()
+    private let workshopService = WorkshopService()
     var workshopList: [Workshop] = []
     var errorMessage: LocalizedStringResource?
     
@@ -19,6 +19,8 @@ final class ScheduleViewModel {
         }
         catch {
             errorMessage = .scheduleRequestError
+            // Remove it once feature done
+            print(error)
         }
     }
 }

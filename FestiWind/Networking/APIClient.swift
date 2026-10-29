@@ -22,13 +22,13 @@ struct APIClient {
 
     func request<T: Decodable>(
         _ path: String,
-        method: String = HTTPMethod.get.rawValue,
+        method: HTTPMethod = HTTPMethod.get,
         body: (any Encodable)? = nil
     ) async throws -> T {
         let url = baseURL.appendingPathComponent(path)
 
         var request = URLRequest(url: url)
-        request.httpMethod = method
+        request.httpMethod = method.rawValue
         request.setValue(
             "application/json",
             forHTTPHeaderField: "Content-Type"
