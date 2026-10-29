@@ -12,6 +12,4 @@ struct WorkshopService {
         let response: [WorkshopDTO] = try await api.request("workshops")
         return response.map{Workshop($0)}
     }
-    
-    func createWorkshop() async {}
 }

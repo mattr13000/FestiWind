@@ -15,6 +15,7 @@ struct LoadingView: View {
             VStack {
                 Text(.appTitle)
                     .font(.custom("Shalimar-Regular", size: 80))
+                    .progressViewStyle(.circular)
                 Text(message)
                     .font(.title)
             }

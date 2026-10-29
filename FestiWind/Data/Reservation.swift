@@ -7,9 +7,14 @@
 
 import Foundation
 
-struct Reservation{
-    let id: Int
+struct Reservation: Identifiable {
+    let id: UUID
     let status: String
-    let user_id: Int
-    let workshop_id: Int
+}
+
+extension Reservation {
+    init(_ dto: ReservationDTO) {
+        self.id = dto.id
+        self.status = dto.status
+    }
 }
