@@ -9,7 +9,8 @@ import SwiftUI
 
 struct ScheduleCard: View {
     var title: String
-    // var schedule: String
+    var startTime: Date
+    var endTime: Date
     var remainingSlots: Int
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -19,9 +20,16 @@ struct ScheduleCard: View {
                 .foregroundColor(.black)
             
             HStack() {
+                Image(systemName: "calendar")
+                    .font(.subheadline)
+                Text("\(startTime.formatted(.dateTime.weekday(.wide).day().month(.wide)))")
+                    .font(.subheadline)
+            }
+            
+            HStack() {
                 Image(systemName: "clock")
                     .font(.subheadline)
-                Text("11 pm to 12 pm")
+                Text("\(startTime.formatted(.dateTime.hour().minute())) - \(endTime.formatted(.dateTime.hour().minute()))")
                     .font(.subheadline)
             }
             .foregroundColor(.black)
