@@ -54,7 +54,10 @@ struct APIClient {
                 ]
             )
         }
+        
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
 
-        return try JSONDecoder().decode(T.self, from: data)
+        return try decoder.decode(T.self, from: data)
     }
 }
