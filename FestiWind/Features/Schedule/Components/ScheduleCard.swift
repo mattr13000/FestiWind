@@ -10,7 +10,7 @@ import SwiftUI
 struct ScheduleCard: View {
     var title: String
     // var schedule: String
-    var remainingSpots: Int
+    var remainingSlots: Int
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text(title)
@@ -33,7 +33,7 @@ struct ScheduleCard: View {
                 
                 // DONT FORGET TO GRAY BUTTON IF THIS = 0 LATER !!
                 
-                Text(String(remainingSpots))
+                Text(String(remainingSlots))
                     
             }
             .font(.subheadline)

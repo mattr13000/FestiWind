@@ -17,7 +17,7 @@ struct ScheduleView: View {
                     VStack {
                         ForEach (scheduleVM.workshopList) { workshop in
                             ScheduleCard(title: workshop.name,
-                                         remainingSpots: (workshop.remainingSlots))
+                                         remainingSlots: workshop.remainingSlots)
                         }
                     }
                 }
