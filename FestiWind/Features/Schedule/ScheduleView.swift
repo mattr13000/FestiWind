@@ -28,8 +28,6 @@ struct ScheduleView: View {
         }
         .task {
             await scheduleVM.getWorkshopList()
-            // Remove it once feature done
-            print(scheduleVM.workshopList)
         }
     }
 }

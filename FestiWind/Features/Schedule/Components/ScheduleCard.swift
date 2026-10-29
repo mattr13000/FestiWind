@@ -19,20 +19,18 @@ struct ScheduleCard: View {
                 .fontWeight(.bold)
                 .foregroundColor(.black)
             
-            HStack() {
+            HStack {
                 Image(systemName: "calendar")
-                    .font(.subheadline)
                 Text("\(startTime.formatted(.dateTime.weekday(.wide).day().month(.wide)))")
-                    .font(.subheadline)
             }
+            .font(.subheadline)
             
             HStack() {
                 Image(systemName: "clock")
                     .font(.subheadline)
                 Text("\(startTime.formatted(.dateTime.hour().minute())) - \(endTime.formatted(.dateTime.hour().minute()))")
-                    .font(.subheadline)
             }
-            .foregroundColor(.black)
+            .font(.subheadline)
             
             HStack {
                 Spacer()

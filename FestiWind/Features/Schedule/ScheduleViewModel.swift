@@ -19,8 +19,6 @@ final class ScheduleViewModel {
         }
         catch {
             errorMessage = .scheduleRequestError
-            // Remove it once feature done
-            print(error)
         }
     }
 }
