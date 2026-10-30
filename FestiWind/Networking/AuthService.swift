@@ -30,7 +30,7 @@ struct AuthService {
     
     func getProfile() async throws -> User {
         let response: UserDTO = try await webService.request("users/profile", requiresAuth: true)
-        return response
+        return User(response)
     }
 }
 
