@@ -6,10 +6,10 @@
 //
 
 struct WorkshopService {
-    private let api = APIClient()
+    private let webService = WebService()
  
     func getWorkshops() async throws -> [Workshop] {
-        let response: [WorkshopDTO] = try await api.request("workshops")
+        let response: [WorkshopDTO] = try await webService.request("workshops")
         return response.map{Workshop($0)}
     }
 }
