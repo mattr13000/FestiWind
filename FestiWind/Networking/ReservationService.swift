@@ -7,15 +7,15 @@
 
 
 struct ReservationService {
-    private let api = APIClient()
+    private let webService = WebService()
     
     func getUserReservations() async throws -> [Reservation] {
-        let response: [ReservationDTO] = try await api.request("reservations")
+        let response: [ReservationDTO] = try await webService.request("reservations")
         return response.map{Reservation($0)}
     }
     
     func postReservation() async throws {
-        let response: [WorkshopDTO] = try await api.request(
+        let response: [WorkshopDTO] = try await webService.request(
             "reservations",
             method: .post,
             body: ""
@@ -23,7 +23,7 @@ struct ReservationService {
     }
     
     func cancelReservation() async throws {
-        let response: [WorkshopDTO] = try await api.request(
+        let response: [WorkshopDTO] = try await webService.request(
             "reservations",
             method: .patch,
             body: ""
