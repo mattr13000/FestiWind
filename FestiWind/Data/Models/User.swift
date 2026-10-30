@@ -7,10 +7,12 @@
 
 import Foundation
 
-struct User {
-    let id: Int
-    let name: String
-    let email: String
-    let role: String
-    let createdAt: Date
+struct User: Identifiable {
+    let id: UUID
+}
+
+extension User {
+    init(_ dto: UserDTO) {
+        self.id = dto.id
+    }
 }
