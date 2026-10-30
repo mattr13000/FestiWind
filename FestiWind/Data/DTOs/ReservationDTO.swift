@@ -10,5 +10,12 @@ import Foundation
 struct ReservationDTO: Decodable {
     let id: UUID
     let status: String
+    let workshopName: String
+    let startTime: Date
+    let endTime: Date
+}
+
+struct UserReservationsDTO: Decodable {
+    let workshopReservationsDTO: [ReservationDTO]
 }
 
