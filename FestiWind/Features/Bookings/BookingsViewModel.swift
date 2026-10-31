@@ -18,7 +18,7 @@ final class BookingsViewModel {
             bookingsList = try await reservationService.getUserReservations()
         }
         catch {
-            errorMessage = .scheduleRequestError
+            errorMessage = .bookingsRequestError
         }
     }
     
@@ -27,7 +27,7 @@ final class BookingsViewModel {
             try await reservationService.cancelReservation(reservationID: reservationID)
         }
         catch {
-            errorMessage = .scheduleRequestError
+            errorMessage = .bookingsCancelError
         }
     }
 }

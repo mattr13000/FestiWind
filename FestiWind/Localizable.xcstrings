@@ -625,6 +625,57 @@
         }
       }
     },
+    "bookingsCancelError" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t cancel your booking. Please try again."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible d’annuler votre réservation. Veuillez réessayer."
+          }
+        }
+      }
+    },
+    "bookingsRequestError" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t get your bookings."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de récupérer vos réservations."
+          }
+        }
+      }
+    },
+    "scheduleBookingError" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t book this workshop. Please try again."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de réserver cet atelier. Veuillez réessayer."
+          }
+        }
+      }
+    },
     "scheduleRequestError" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -632,6 +683,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn’t get workshop list."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de récupérer la liste des ateliers."
           }
         }
       }

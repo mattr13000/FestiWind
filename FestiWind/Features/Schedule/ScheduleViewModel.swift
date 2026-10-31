@@ -27,7 +27,7 @@ final class ScheduleViewModel {
         do {
             try await reservationService.postReservation(workshopID: workshopID)
         } catch {
-            errorMessage = .scheduleRequestError
+            errorMessage = .scheduleBookingError
         }
     }
 }
