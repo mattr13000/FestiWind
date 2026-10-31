@@ -25,7 +25,7 @@ struct ScheduleCard: View {
             }
             .font(.subheadline)
             
-            HStack() {
+            HStack {
                 Image(systemName: "clock")
                     .font(.subheadline)
                 Text("\(startTime.formatted(.dateTime.hour().minute())) - \(endTime.formatted(.dateTime.hour().minute()))")
