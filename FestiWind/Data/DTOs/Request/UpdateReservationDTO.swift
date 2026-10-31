@@ -8,6 +8,5 @@
 import Foundation
 
 struct UpdateReservationDTO: Encodable {
-    let id: UUID
-    let status: String
+    let status: ReservationStatus
 }

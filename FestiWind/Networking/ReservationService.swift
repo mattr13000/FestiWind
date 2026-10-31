@@ -32,7 +32,7 @@ struct ReservationService {
         let response: ReservationDTO = try await webService.request(
             "reservations/\(reservationID)",
             method: .put,
-            body: UpdateReservationDTO(id: reservationID, status: status),
+            body: UpdateReservationDTO(status: .cancelled),
             requiresAuth: true
         )
         return Reservation(response)
