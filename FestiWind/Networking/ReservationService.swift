@@ -28,11 +28,13 @@ struct ReservationService {
         return Reservation(response)
     }
     
-    func cancelReservation() async throws {
-        let response: [WorkshopDTO] = try await webService.request(
-            "reservations",
-            method: .patch,
-            body: ""
+    func cancelReservation(reservationID: UUID, status: String) async throws -> Reservation {
+        let response: ReservationDTO = try await webService.request(
+            "reservations/\(reservationID)",
+            method: .put,
+            body: UpdateReservationDTO(id: reservationID, status: status),
+            requiresAuth: true
         )
+        return Reservation(response)
     }
 }
