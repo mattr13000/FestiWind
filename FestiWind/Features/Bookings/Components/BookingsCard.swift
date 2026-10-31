@@ -12,6 +12,7 @@ struct BookingsCard: View {
     var startTime: Date
     var endTime: Date
     var action: () -> Void
+    @State private var isCancelling: Bool = false
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
@@ -46,12 +47,18 @@ struct BookingsCard: View {
                 opacity: 0.3,
                 textColor: .textPrimary,
                 backgroundColor: .buttonColorCancel
-            ){}
+            ){
+                isCancelling = true
+            }
         }
         .padding(30)
         .background(
             CardTemplateView()
         )
+        .alert(.bookingAlertCancel, isPresented: $isCancelling) {
+                Button("Cancel", role: .cancel) { }
+                Button("Confirm", role: .destructive, action: action)
+            }
     }
 }
 

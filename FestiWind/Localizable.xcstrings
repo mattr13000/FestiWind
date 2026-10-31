@@ -324,6 +324,43 @@
         }
       }
     },
+    "bookingsCancelError" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t cancel your booking. Please try again."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible d’annuler votre réservation. Veuillez réessayer."
+          }
+        }
+      }
+    },
+    "bookingsRequestError" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t get your bookings."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de récupérer vos réservations."
+          }
+        }
+      }
+    },
+    "Cancel" : {
+
+    },
     "common.book_prompt" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -496,6 +533,9 @@
         }
       }
     },
+    "Confirm" : {
+
+    },
     "detail.book_placeholder" : {
       "extractionState" : "manual"
     },
@@ -621,40 +661,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Posti rimanenti :"
-          }
-        }
-      }
-    },
-    "bookingsCancelError" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Couldn’t cancel your booking. Please try again."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Impossible d’annuler votre réservation. Veuillez réessayer."
-          }
-        }
-      }
-    },
-    "bookingsRequestError" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Couldn’t get your bookings."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Impossible de récupérer vos réservations."
           }
         }
       }

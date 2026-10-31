@@ -25,16 +25,10 @@ struct BookingsView: View {
                                              startTime: booking.startTime,
                                              endTime: booking.endTime
                                 ){
-                                    isCancelling = true
-                                }
-                                .alert(.bookingAlertCancel, isPresented: $isCancelling) {
-                                        Button("Cancel", role: .cancel) { }
-                                        Button("Confirm", role: .destructive) {
-                                            Task {
-                                                try await bookingsVM.cancelReservation(reservationID: booking.id)
-                                            }
-                                        }
+                                    Task {
+                                        try await bookingsVM.cancelReservation(reservationID: booking.id)
                                     }
+                                }
                             }
                         }
                     }
