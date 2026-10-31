@@ -18,23 +18,21 @@ struct ReservationService {
         return response.workshopReservationsDTO.map{Reservation($0)}
     }
     
-    func postReservation(workshopID: UUID) async throws -> Reservation {
-        let response: ReservationDTO = try await webService.request(
+    func postReservation(workshopID: UUID) async throws {
+        let _: ReservationDTO = try await webService.request(
             "reservations",
             method: .post,
             body: CreateReservationDTO(workshopID: workshopID),
             requiresAuth: true
         )
-        return Reservation(response)
     }
-    
-    func cancelReservation(reservationID: UUID) async throws -> Reservation {
-        let response: ReservationDTO = try await webService.request(
+
+    func cancelReservation(reservationID: UUID) async throws {
+        let _: ReservationDTO = try await webService.request(
             "reservations/\(reservationID)",
             method: .put,
             body: UpdateReservationDTO(status: .cancelled),
             requiresAuth: true
         )
-        return Reservation(response)
     }
 }

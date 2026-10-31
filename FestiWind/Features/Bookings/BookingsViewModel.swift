@@ -22,7 +22,7 @@ final class BookingsViewModel {
         }
     }
     
-    func cancelReservation(reservationID: UUID) async throws {
+    func cancelReservation(reservationID: UUID) async {
         do {
             try await reservationService.cancelReservation(reservationID: reservationID)
         }
