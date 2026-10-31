@@ -9,7 +9,8 @@ import SwiftUI
 
 @Observable
 final class ScheduleViewModel {
-    let workshopService = WorkshopService()
+    private let workshopService = WorkshopService()
+    private let reservationService = ReservationService()
     var workshopList: [Workshop] = []
     var errorMessage: LocalizedStringResource?
     
@@ -19,6 +20,14 @@ final class ScheduleViewModel {
         }
         catch {
             errorMessage = .scheduleRequestError
+        }
+    }
+    
+    func postReservation(workshopID: UUID) async {
+        do {
+            try await reservationService.postReservation(workshopID: workshopID)
+        } catch {
+            errorMessage = .scheduleBookingError
         }
     }
 }

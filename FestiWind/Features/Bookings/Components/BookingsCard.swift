@@ -8,24 +8,36 @@
 import SwiftUI
 
 struct BookingsCard: View {
+    var title: String
+    var startTime: Date
+    var endTime: Date
+    var action: () -> Void
+    @State private var isCancelling: Bool = false
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
-                Text("Kite surf")
+                Text(title)
                     .font(.title2)
                     .fontWeight(.bold)
                     .foregroundColor(.black)
+                
                 Spacer()
                 Text(.bookingsStatusConfirmed)
                     .font(.subheadline)
                     .foregroundColor(.gray)
             }
-            HStack() {
+            HStack {
+                Image(systemName: "calendar")
+                Text("\(startTime.formatted(.dateTime.weekday(.wide).day().month(.wide)))")
+            }
+            .font(.subheadline)
+            
+            HStack {
                 Image(systemName: "clock")
                     .font(.subheadline)
-                Text("11 pm to 12 pm")
-                    .font(.subheadline)
+                Text("\(startTime.formatted(.dateTime.hour().minute())) - \(endTime.formatted(.dateTime.hour().minute()))")
             }
+            .font(.subheadline)
             .padding(.bottom, 20)
             .foregroundColor(.black)
             GlassButtonView(
@@ -35,16 +47,22 @@ struct BookingsCard: View {
                 opacity: 0.3,
                 textColor: .textPrimary,
                 backgroundColor: .buttonColorCancel
-            ){}
+            ){
+                isCancelling = true
+            }
         }
         .padding(30)
         .background(
             CardTemplateView()
         )
+        .alert(.bookingAlertCancel, isPresented: $isCancelling) {
+            Button(.bookingsCancelCancellation, role: .cancel) { }
+            Button(.bookingsConfirmCancellation, role: .destructive, action: action)
+            }
     }
 }
 
 
 #Preview {
-    BookingsCard()
+    BookingsCard(title: "placeholder", startTime: Date(), endTime: Date()){}
 }

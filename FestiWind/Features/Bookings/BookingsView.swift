@@ -8,25 +8,36 @@
 import SwiftUI
 
 struct BookingsView: View {
+    @State private var bookingsVM = BookingsViewModel()
     var body: some View {
         NavigationStack {
             ZStack {
               BackgroundView()
-                ScrollView {
-                    VStack {
-                        BookingsCard()
-                        BookingsCard()
-                        BookingsCard()
-                        BookingsCard()
-                        BookingsCard()
-                        BookingsCard()
-                        BookingsCard()
-                        BookingsCard()
-                    }
-                    .navigationTitle(.navTitleBookings)
+                if (bookingsVM.bookingsList.count == 0) {
+                    ContentUnavailableView(.bookingsNoBookingsPrompt, systemImage: "calendar.badge.exclamationmark")
                 }
-                
+                else {
+                ScrollView {
+                    VStack(alignment: .center) {
+                            ForEach (bookingsVM.bookingsList) { booking in
+                                BookingsCard(title: booking.workshopName,
+                                             startTime: booking.startTime,
+                                             endTime: booking.endTime
+                                ){
+                                    Task {
+                                        await bookingsVM.cancelReservation(reservationID: booking.id)
+                                        await bookingsVM.getUserReservationsList()
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
             }
+            .navigationTitle(.navTitleBookings)
+        }
+        .task {
+            await bookingsVM.getUserReservationsList()
         }
     }
 }

@@ -4,6 +4,19 @@
     "" : {
 
     },
+    "%@" : {
+
+    },
+    "%@ - %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ - %2$@"
+          }
+        }
+      }
+    },
     "11 pm to 12 pm" : {
 
     },
@@ -254,6 +267,74 @@
         }
       }
     },
+    "booking.alert.cancel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You will cancel the booking. Confirm ?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Vous allez annuler la réservation. Confirmez ?"
+          }
+        }
+      }
+    },
+    "bookings.cancel_cancellation" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Go back"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Revenir en arrière"
+          }
+        }
+      }
+    },
+    "bookings.confirm_cancellation" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I cancel"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "J’annule"
+          }
+        }
+      }
+    },
+    "bookings.noBookingsPrompt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You haven’t scheduled anything yet."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous n’avez pas encore réservé un atelier."
+          }
+        }
+      }
+    },
     "bookings.status_confirmed" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -273,6 +354,40 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Confermato"
+          }
+        }
+      }
+    },
+    "bookingsCancelError" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t cancel your booking. Please try again."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible d’annuler votre réservation. Veuillez réessayer."
+          }
+        }
+      }
+    },
+    "bookingsRequestError" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t get your bookings."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de récupérer vos réservations."
           }
         }
       }
@@ -578,6 +693,23 @@
         }
       }
     },
+    "scheduleBookingError" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn’t book this workshop. Please try again."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de réserver cet atelier. Veuillez réessayer."
+          }
+        }
+      }
+    },
     "scheduleRequestError" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -585,6 +717,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Couldn’t get workshop list."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impossible de récupérer la liste des ateliers."
           }
         }
       }

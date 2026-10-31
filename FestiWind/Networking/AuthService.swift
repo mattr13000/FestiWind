@@ -17,15 +17,20 @@ struct AuthResponse: Decodable {
 }
  
 struct AuthService {
-    private let api = APIClient()
+    private let webService = WebService()
  
     func login(email: String, password: String) async throws -> String {
-        let response: AuthResponse = try await api.request(
+        let response: AuthResponse = try await webService.request(
             "users/login",
-            method: HTTPMethod.post.rawValue,
+            method: .post,
             body: LoginRequest(email: email, password: password)
         )
         return response.token
+    }
+    
+    func getProfile() async throws -> User {
+        let response: UserDTO = try await webService.request("users/profile", requiresAuth: true)
+        return User(response)
     }
 }
 

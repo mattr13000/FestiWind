@@ -16,7 +16,15 @@ struct ScheduleView: View {
                 ScrollView {
                     VStack {
                         ForEach (scheduleVM.workshopList) { workshop in
-                            ScheduleCard(title: workshop.name, remainingSpots: (workshop.capacityMax - workshop.totalSubscribers))
+                            ScheduleCard(title: workshop.name,
+                                         startTime: workshop.startTime,
+                                         endTime: workshop.endTime,
+                                         remainingSlots: workshop.remainingSlots)
+                            {
+                                Task {
+                                    await scheduleVM.postReservation( workshopID: workshop.id)
+                                }
+                            }
                         }
                     }
                 }
@@ -25,7 +33,6 @@ struct ScheduleView: View {
         }
         .task {
             await scheduleVM.getWorkshopList()
-            print(scheduleVM.workshopList)
         }
     }
 }

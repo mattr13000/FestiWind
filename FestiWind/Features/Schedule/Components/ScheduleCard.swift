@@ -9,8 +9,10 @@ import SwiftUI
 
 struct ScheduleCard: View {
     var title: String
-    // var schedule: String
-    var remainingSpots: Int
+    var startTime: Date
+    var endTime: Date
+    var remainingSlots: Int
+    var action: () -> Void
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text(title)
@@ -18,13 +20,18 @@ struct ScheduleCard: View {
                 .fontWeight(.bold)
                 .foregroundColor(.black)
             
-            HStack() {
+            HStack {
+                Image(systemName: "calendar")
+                Text("\(startTime.formatted(.dateTime.weekday(.wide).day().month(.wide)))")
+            }
+            .font(.subheadline)
+            
+            HStack {
                 Image(systemName: "clock")
                     .font(.subheadline)
-                Text("11 pm to 12 pm")
-                    .font(.subheadline)
+                Text("\(startTime.formatted(.dateTime.hour().minute())) - \(endTime.formatted(.dateTime.hour().minute()))")
             }
-            .foregroundColor(.black)
+            .font(.subheadline)
             
             HStack {
                 Spacer()
@@ -33,7 +40,7 @@ struct ScheduleCard: View {
                 
                 // DONT FORGET TO GRAY BUTTON IF THIS = 0 LATER !!
                 
-                Text(String(remainingSpots))
+                Text(String(remainingSlots))
                     
             }
             .font(.subheadline)
@@ -44,8 +51,9 @@ struct ScheduleCard: View {
                 frameMaxHeight: 1,
                 opacity: 0.3,
                 textColor: .textPrimary,
-                backgroundColor: .buttonColorActive
-            ){}
+                backgroundColor: .buttonColorActive,
+                action: action
+            )
         }
         .padding(30)
         .background(
@@ -55,5 +63,5 @@ struct ScheduleCard: View {
 }
 
 #Preview {
-    // ScheduleCard()
+    ScheduleCard(title: "Placeholder", startTime: Date(), endTime: Date(), remainingSlots: 6){}
 }
