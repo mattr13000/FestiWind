@@ -284,6 +284,40 @@
         }
       }
     },
+    "bookings.cancel_cancellation" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Go back"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Revenir en arrière"
+          }
+        }
+      }
+    },
+    "bookings.confirm_cancellation" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I cancel"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "J’annule"
+          }
+        }
+      }
+    },
     "bookings.noBookingsPrompt" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -357,9 +391,6 @@
           }
         }
       }
-    },
-    "Cancel" : {
-
     },
     "common.book_prompt" : {
       "extractionState" : "manual",
@@ -532,9 +563,6 @@
           }
         }
       }
-    },
-    "Confirm" : {
-
     },
     "detail.book_placeholder" : {
       "extractionState" : "manual"

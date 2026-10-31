@@ -56,8 +56,8 @@ struct BookingsCard: View {
             CardTemplateView()
         )
         .alert(.bookingAlertCancel, isPresented: $isCancelling) {
-                Button("Cancel", role: .cancel) { }
-                Button("Confirm", role: .destructive, action: action)
+            Button(.bookingsCancelCancellation, role: .cancel) { }
+            Button(.bookingsConfirmCancellation, role: .destructive, action: action)
             }
     }
 }

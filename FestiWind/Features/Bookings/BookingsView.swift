@@ -27,6 +27,7 @@ struct BookingsView: View {
                                 ){
                                     Task {
                                         try await bookingsVM.cancelReservation(reservationID: booking.id)
+                                        await bookingsVM.getUserReservationsList()
                                     }
                                 }
                             }
