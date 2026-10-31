@@ -19,7 +19,8 @@ struct ScheduleView: View {
                             ScheduleCard(title: workshop.name,
                                          startTime: workshop.startTime,
                                          endTime: workshop.endTime,
-                                         remainingSlots: workshop.remainingSlots)
+                                         remainingSlots: workshop.remainingSlots,
+                            action: <#T##() -> Void#>)
                         }
                     }
                 }

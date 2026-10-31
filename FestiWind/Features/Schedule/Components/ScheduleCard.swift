@@ -12,6 +12,7 @@ struct ScheduleCard: View {
     var startTime: Date
     var endTime: Date
     var remainingSlots: Int
+    var action: () -> Void
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             Text(title)
@@ -50,8 +51,9 @@ struct ScheduleCard: View {
                 frameMaxHeight: 1,
                 opacity: 0.3,
                 textColor: .textPrimary,
-                backgroundColor: .buttonColorActive
-            ){}
+                backgroundColor: .buttonColorActive,
+                action: action
+            )
         }
         .padding(30)
         .background(
