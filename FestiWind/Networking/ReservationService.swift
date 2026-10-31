@@ -28,7 +28,7 @@ struct ReservationService {
         return Reservation(response)
     }
     
-    func cancelReservation(reservationID: UUID, status: String) async throws -> Reservation {
+    func cancelReservation(reservationID: UUID) async throws -> Reservation {
         let response: ReservationDTO = try await webService.request(
             "reservations/\(reservationID)",
             method: .put,

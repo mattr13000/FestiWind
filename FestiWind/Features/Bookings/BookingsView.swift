@@ -9,6 +9,7 @@ import SwiftUI
 
 struct BookingsView: View {
     @State private var bookingsVM = BookingsViewModel()
+    @State private var isCancelling: Bool = false
     var body: some View {
         NavigationStack {
             ZStack {
@@ -23,7 +24,17 @@ struct BookingsView: View {
                                 BookingsCard(title: booking.workshopName,
                                              startTime: booking.startTime,
                                              endTime: booking.endTime
-                                ){}
+                                ){
+                                    isCancelling = true
+                                }
+                                .alert(.bookingAlertCancel, isPresented: $isCancelling) {
+                                        Button("Cancel", role: .cancel) { }
+                                        Button("Confirm", role: .destructive) {
+                                            Task {
+                                                try await bookingsVM.cancelReservation(reservationID: booking.id)
+                                            }
+                                        }
+                                    }
                             }
                         }
                     }

@@ -21,4 +21,13 @@ final class BookingsViewModel {
             errorMessage = .scheduleRequestError
         }
     }
+    
+    func cancelReservation(reservationID: UUID) async throws {
+        do {
+            try await reservationService.cancelReservation(reservationID: reservationID)
+        }
+        catch {
+            errorMessage = .scheduleRequestError
+        }
+    }
 }

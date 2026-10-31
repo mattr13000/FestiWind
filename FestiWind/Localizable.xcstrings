@@ -267,6 +267,23 @@
         }
       }
     },
+    "booking.alert.cancel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You will cancel the booking. Confirm ?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Vous allez annuler la réservation. Confirmez ?"
+          }
+        }
+      }
+    },
     "bookings.noBookingsPrompt" : {
       "extractionState" : "manual",
       "localizations" : {
