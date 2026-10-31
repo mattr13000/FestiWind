@@ -22,7 +22,8 @@ struct ReservationService {
         let response: ReservationDTO = try await webService.request(
             "reservations",
             method: .post,
-            body: ""
+            body: CreateReservationDTO(workshopID: workshopID),
+            requiresAuth: true
         )
         return Reservation(response)
     }

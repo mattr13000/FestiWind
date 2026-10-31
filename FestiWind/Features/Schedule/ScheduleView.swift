@@ -20,7 +20,7 @@ struct ScheduleView: View {
                                          startTime: workshop.startTime,
                                          endTime: workshop.endTime,
                                          remainingSlots: workshop.remainingSlots,
-                            action: <#T##() -> Void#>)
+                                         action: scheduleVM.postReservation(workshopID: workshop.id))
                         }
                     }
                 }

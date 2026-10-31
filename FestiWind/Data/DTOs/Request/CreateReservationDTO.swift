@@ -5,6 +5,8 @@
 //  Created by Apprenant 77 on 31/10/2026.
 //
 
-struct CreateReservation {
-    
+import Foundation
+
+struct CreateReservationDTO: Encodable {
+    let workshopID: UUID
 }
