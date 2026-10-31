@@ -13,12 +13,12 @@ struct BookingsView: View {
         NavigationStack {
             ZStack {
               BackgroundView()
+                if (bookingsVM.bookingsList.count == 0) {
+                    ContentUnavailableView(.bookingsNoBookingsPrompt, systemImage: "calendar.badge.exclamationmark")
+                }
+                else {
                 ScrollView {
                     VStack(alignment: .center) {
-                        if (bookingsVM.bookingsList.count == 0) {
-                            Text("Pas encore de réservations")
-                        }
-                        else {
                             ForEach (bookingsVM.bookingsList) { booking in
                                 BookingsCard(title: booking.workshopName,
                                              startTime: booking.startTime,
@@ -27,9 +27,9 @@ struct BookingsView: View {
                             }
                         }
                     }
-                    .navigationTitle(.navTitleBookings)
-                }                
+                }
             }
+            .navigationTitle(.navTitleBookings)
         }
         .task {
             await bookingsVM.getUserReservationsList()

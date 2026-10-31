@@ -254,6 +254,23 @@
         }
       }
     },
+    "bookings.noBookingsPrompt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You haven’t scheduled anything yet."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vous n’avez pas encore réservé un atelier."
+          }
+        }
+      }
+    },
     "bookings.status_confirmed" : {
       "extractionState" : "manual",
       "localizations" : {
