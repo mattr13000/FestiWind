@@ -23,7 +23,7 @@ struct BookingsView: View {
                                 BookingsCard(title: booking.workshopName,
                                              startTime: booking.startTime,
                                              endTime: booking.endTime
-                                )
+                                ){}
                             }
                         }
                     }

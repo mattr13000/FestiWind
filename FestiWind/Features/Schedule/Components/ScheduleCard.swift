@@ -63,5 +63,5 @@ struct ScheduleCard: View {
 }
 
 #Preview {
-    // ScheduleCard()
+    ScheduleCard(title: "Placeholder", startTime: Date(), endTime: Date(), remainingSlots: 6){}
 }

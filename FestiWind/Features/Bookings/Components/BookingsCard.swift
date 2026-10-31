@@ -11,6 +11,7 @@ struct BookingsCard: View {
     var title: String
     var startTime: Date
     var endTime: Date
+    var action: () -> Void
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             HStack {
@@ -56,5 +57,5 @@ struct BookingsCard: View {
 
 
 #Preview {
-    BookingsCard(title: "placeholder", startTime: Date(), endTime: Date())
+    BookingsCard(title: "placeholder", startTime: Date(), endTime: Date()){}
 }

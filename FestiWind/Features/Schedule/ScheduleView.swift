@@ -19,8 +19,12 @@ struct ScheduleView: View {
                             ScheduleCard(title: workshop.name,
                                          startTime: workshop.startTime,
                                          endTime: workshop.endTime,
-                                         remainingSlots: workshop.remainingSlots,
-                                         action: scheduleVM.postReservation(workshopID: workshop.id))
+                                         remainingSlots: workshop.remainingSlots)
+                            {
+                                Task {
+                                    await scheduleVM.postReservation( workshopID: workshop.id)
+                                }
+                            }
                         }
                     }
                 }
