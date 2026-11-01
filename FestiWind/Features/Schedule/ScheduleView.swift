@@ -8,8 +8,12 @@
 import SwiftUI
 
 struct ScheduleView: View {
-    @Environment(FestivalStore.self) var festivalStore
-    @State private var scheduleVM = ScheduleViewModel()
+    @State private var scheduleVM: ScheduleViewModel
+    
+    init(store: FestivalStore) {
+        _scheduleVM = State(initialValue: ScheduleViewModel(store: store))
+    }
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -22,7 +26,7 @@ struct ScheduleView: View {
                                 startTime: workshop.startTime,
                                 endTime: workshop.endTime,
                                 remainingSlots: workshop.remainingSlots,
-                                bookingStatus: festivalStore.getBookingState(workshop: workshop))
+                                bookingStatus: scheduleVM.getBookingState(workshop: workshop))
                             {
                                 Task {
                                     await scheduleVM.postReservation( workshopID: workshop.id)
@@ -35,13 +39,12 @@ struct ScheduleView: View {
             }
         }
         .task {
-            await scheduleVM.getWorkshopList()
-            await festivalStore.getUserReservationsList()
+            await scheduleVM.workshopList
+            await scheduleVM.bookingsList
         }
     }
 }
 
 #Preview {
-    ScheduleView()
-        .environment(FestivalStore())
+    ScheduleView(store: FestivalStore())
 }

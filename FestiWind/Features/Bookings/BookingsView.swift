@@ -8,26 +8,28 @@
 import SwiftUI
 
 struct BookingsView: View {
-    @Environment(FestivalStore.self) var festivalStore
-    @State private var bookingsVM = BookingsViewModel()
+    @State private var bookingsVM: BookingsViewModel
+    init(store: FestivalStore) {
+        _bookingsVM = State(initialValue: BookingsViewModel(store: store))
+    }
     var body: some View {
         NavigationStack {
             ZStack {
               BackgroundView()
-                if (festivalStore.bookingsList.count == 0) {
+                if (bookingsVM.bookingsList.count == 0) {
                     ContentUnavailableView(.bookingsNoBookingsPrompt, systemImage: "calendar.badge.exclamationmark")
                 }
                 else {
                 ScrollView {
                     VStack(alignment: .center) {
-                            ForEach (festivalStore.bookingsList) { booking in
+                            ForEach (bookingsVM.bookingsList) { booking in
                                 BookingsCard(title: booking.workshopName,
                                              startTime: booking.startTime,
                                              endTime: booking.endTime
                                 ){
                                     Task {
                                         await bookingsVM.cancelReservation(reservationID: booking.id)
-                                        await festivalStore.getUserReservationsList()
+                                        await bookingsVM.bookingsList
                                     }
                                 }
                             }
@@ -38,12 +40,11 @@ struct BookingsView: View {
             .navigationTitle(.navTitleBookings)
         }
         .task {
-            await festivalStore.getUserReservationsList()
+            await bookingsVM.bookingsList
         }
     }
 }
 
 #Preview {
-    BookingsView()
-        .environment(FestivalStore())
+    BookingsView(store: FestivalStore())
 }

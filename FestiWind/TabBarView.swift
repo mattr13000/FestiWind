@@ -12,11 +12,11 @@ struct TabBarView: View {
     var body: some View {
         TabView {
             Tab(.navTitleSchedule, systemImage: "book") {
-                ScheduleView()
+                ScheduleView(store: festivalStore)
             }
             
             Tab(.navTitleBookings, systemImage: "calendar") {
-                BookingsView()
+                BookingsView(store: festivalStore)
             }
             Tab(.navTitleProfile, systemImage: "person.fill") {
                 ProfileView()

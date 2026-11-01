@@ -15,35 +15,11 @@ final class FestivalStore {
     var bookingsList: [Reservation] = []
     var workshopList: [Workshop] = []
     
-    var errorMessage: LocalizedStringResource?
-    
-    func getUserReservationsList() async {
-        do {
-            bookingsList = try await reservationService.getUserReservations()
-        }
-        catch {
-            errorMessage = .bookingsRequestError
-        }
+    func getUserReservationsList() async throws {
+        bookingsList = try await reservationService.getUserReservations()
     }
     
-    func getWorkshopList() async {
-        do {
-            workshopList = try await workshopService.getWorkshops()
-        }
-        catch {
-            errorMessage = .scheduleRequestError
-        }
-    }
-    
-    func getBookingState(workshop: Workshop) -> BookingStatus {
-        if (bookingsList.contains(where: {$0.workshopID == workshop.id})) {
-            return .alreadyBooked
-        }
-        
-        if (workshop.remainingSlots == 0) {
-            return .workshopFull
-        }
-        
-        return .bookingAvailable
+    func getWorkshopList() async throws {
+        workshopList = try await workshopService.getWorkshops()
     }
 }

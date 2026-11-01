@@ -11,16 +11,16 @@ import SwiftUI
 final class ScheduleViewModel {
     private let workshopService = WorkshopService()
     private let reservationService = ReservationService()
-    var workshopList: [Workshop] = []
+    
+    var workshopList: [Workshop] {store.workshopList}
+    var bookingsList: [Reservation] {store.bookingsList}
+    
     var errorMessage: LocalizedStringResource?
     
-    func getWorkshopList() async {
-        do {
-            workshopList = try await workshopService.getWorkshops()
-        }
-        catch {
-            errorMessage = .scheduleRequestError
-        }
+    private let store: FestivalStore
+    
+    init(store: FestivalStore) {
+        self.store = store
     }
     
     func postReservation(workshopID: UUID) async {
@@ -29,5 +29,17 @@ final class ScheduleViewModel {
         } catch {
             errorMessage = .scheduleBookingError
         }
+    }
+    
+    func getBookingState(workshop: Workshop) -> BookingStatus {
+        if (bookingsList.contains(where: {$0.workshopID == workshop.id})) {
+            return .alreadyBooked
+        }
+        
+        if (workshop.remainingSlots == 0) {
+            return .workshopFull
+        }
+        
+        return .bookingAvailable
     }
 }

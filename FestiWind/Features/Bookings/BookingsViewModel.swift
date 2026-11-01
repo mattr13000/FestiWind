@@ -10,7 +10,15 @@ import SwiftUI
 @Observable
 final class BookingsViewModel {
     private let reservationService = ReservationService()
+    private let store: FestivalStore
+    
+    var bookingsList: [Reservation] {store.bookingsList}
+    
     var errorMessage: LocalizedStringResource?
+    
+    init(store: FestivalStore) {
+        self.store = store
+    }
     
     func cancelReservation(reservationID: UUID) async {
         do {
