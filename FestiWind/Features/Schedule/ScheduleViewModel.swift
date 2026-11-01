@@ -23,6 +23,10 @@ final class ScheduleViewModel {
         }
     }
     
+    func isThisButtonDisabled(remainingSlots: Int) -> Bool {
+        return remainingSlots == 0 ? true : false
+    }
+    
     func postReservation(workshopID: UUID) async {
         do {
             try await reservationService.postReservation(workshopID: workshopID)

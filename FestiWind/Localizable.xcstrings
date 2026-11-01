@@ -670,6 +670,23 @@
         }
       }
     },
+    "schedule.button_disabled_booked" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Booked"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réservé"
+          }
+        }
+      }
+    },
     "schedule.remaining_spots" : {
       "extractionState" : "manual",
       "localizations" : {

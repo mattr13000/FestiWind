@@ -21,4 +21,8 @@ final class ReservationManager {
             errorMessage = .bookingsRequestError
         }
     }
+    
+    func isThisButtonDisabled(workshopID: UUID) -> Bool {
+        return bookingsList.contains(where: {$0.workshopID == workshopID})
+    }
 }
