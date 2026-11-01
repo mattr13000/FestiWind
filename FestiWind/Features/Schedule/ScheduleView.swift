@@ -22,7 +22,7 @@ struct ScheduleView: View {
                                 startTime: workshop.startTime,
                                 endTime: workshop.endTime,
                                 remainingSlots: workshop.remainingSlots,
-                                isDisabled: festivalStore.getBookingState(workshop: workshop).buttonState)
+                                bookingStatus: festivalStore.getBookingState(workshop: workshop))
                             {
                                 Task {
                                     await scheduleVM.postReservation( workshopID: workshop.id)
