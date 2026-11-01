@@ -8,22 +8,21 @@
 import SwiftUI
 
 struct TabBarView: View {
-    @State private var reservationManager = ReservationManager()
+    @State private var festivalStore = FestivalStore()
     var body: some View {
         TabView {
             Tab(.navTitleSchedule, systemImage: "book") {
                 ScheduleView()
-                    .environment(reservationManager)
             }
             
             Tab(.navTitleBookings, systemImage: "calendar") {
                 BookingsView()
-                    .environment(reservationManager)
             }
             Tab(.navTitleProfile, systemImage: "person.fill") {
                 ProfileView()
             }
         }
+        .environment(festivalStore)
 
     }
 }

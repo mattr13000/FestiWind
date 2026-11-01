@@ -47,7 +47,7 @@ struct ScheduleCard: View {
             .font(.subheadline)
                 .foregroundColor(.gray)
             GlassButtonView(
-                buttonText: isDisabled ? .scheduleButtonDisabledBooked : .commonBookPrompt,
+                buttonText: isDisabled ? .scheduleButtonDisabledBooked : .scheduleButtonEnabled,
                 frameMaxWidth: .infinity,
                 frameMaxHeight: 1,
                 opacity: 0.3,
@@ -56,7 +56,7 @@ struct ScheduleCard: View {
                 action: action
             )
         }
-        .disabled(isDisabled)
+        .disabled(BookingStatus.bookingAvailable.buttonState)
         .padding(30)
         .background(
             CardTemplateView()

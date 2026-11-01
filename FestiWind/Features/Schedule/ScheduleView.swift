@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ScheduleView: View {
-    @Environment(ReservationManager.self) var reservationManager
+    @Environment(FestivalStore.self) var festivalStore
     @State private var scheduleVM = ScheduleViewModel()
     var body: some View {
         NavigationStack {
@@ -22,7 +22,7 @@ struct ScheduleView: View {
                                 startTime: workshop.startTime,
                                 endTime: workshop.endTime,
                                 remainingSlots: workshop.remainingSlots,
-                                isDisabled: reservationManager.isThisButtonDisabled(workshopID: workshop.id))//scheduleVM.isThisButtonDisabled(remainingSlots: workshop.remainingSlots)
+                                isDisabled: festivalStore.getBookingState(workshop: workshop).buttonState)
                             {
                                 Task {
                                     await scheduleVM.postReservation( workshopID: workshop.id)
@@ -36,11 +36,12 @@ struct ScheduleView: View {
         }
         .task {
             await scheduleVM.getWorkshopList()
+            await festivalStore.getUserReservationsList()
         }
     }
 }
 
 #Preview {
     ScheduleView()
-        .environment(ReservationManager())
+        .environment(FestivalStore())
 }
