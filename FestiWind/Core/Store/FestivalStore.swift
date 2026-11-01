@@ -12,14 +12,22 @@ final class FestivalStore {
     private let reservationService = ReservationService()
     private let workshopService = WorkshopService()
     
-    var bookingsList: [Reservation] = []
-    var workshopList: [Workshop] = []
+    var userBookings: [Reservation] = []
+    var workshops: [Workshop] = []
     
-    func getUserReservationsList() async throws {
-        bookingsList = try await reservationService.getUserReservations()
+    func getUserReservations() async throws {
+        userBookings = try await reservationService.getUserReservations()
     }
     
-    func getWorkshopList() async throws {
-        workshopList = try await workshopService.getWorkshops()
+    func getWorkshops() async throws {
+        workshops = try await workshopService.getWorkshops()
+    }
+    
+    func postReservation(workshopID: UUID) async throws {
+        try await reservationService.postReservation(workshopID: workshopID)
+    }
+    
+    func cancelReservation(reservationID: UUID) async throws {
+        try await reservationService.cancelReservation(reservationID: reservationID)
     }
 }

@@ -12,7 +12,7 @@ final class BookingsViewModel {
     private let reservationService = ReservationService()
     private let store: FestivalStore
     
-    var bookingsList: [Reservation] {store.bookingsList}
+    var userBookings: [Reservation] {store.userBookings}
     
     var errorMessage: LocalizedStringResource?
     
@@ -20,9 +20,17 @@ final class BookingsViewModel {
         self.store = store
     }
     
+    func loadBookings() async {
+        do {
+            try await store.getUserReservations()
+        } catch {
+            errorMessage = .bookingsRequestError
+        }
+    }
+    
     func cancelReservation(reservationID: UUID) async {
         do {
-            try await reservationService.cancelReservation(reservationID: reservationID)
+            try await store.cancelReservation(reservationID: reservationID)
         }
         catch {
             errorMessage = .bookingsCancelError

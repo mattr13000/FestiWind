@@ -12,8 +12,8 @@ final class ScheduleViewModel {
     private let workshopService = WorkshopService()
     private let reservationService = ReservationService()
     
-    var workshopList: [Workshop] {store.workshopList}
-    var bookingsList: [Reservation] {store.bookingsList}
+    var workshops: [Workshop] {store.workshops}
+    var userBookings: [Reservation] {store.userBookings}
     
     var errorMessage: LocalizedStringResource?
     
@@ -23,16 +23,32 @@ final class ScheduleViewModel {
         self.store = store
     }
     
+    func loadWorkshops() async {
+        do {
+            try await store.getWorkshops()
+        } catch {
+            errorMessage = .scheduleRequestError
+        }
+    }
+    
+    func loadBookings() async {
+        do {
+            try await store.getUserReservations()
+        } catch {
+            errorMessage = .bookingsRequestError
+        }
+    }
+    
     func postReservation(workshopID: UUID) async {
         do {
-            try await reservationService.postReservation(workshopID: workshopID)
+            try await store.postReservation(workshopID: workshopID)
         } catch {
             errorMessage = .scheduleBookingError
         }
     }
     
     func getBookingState(workshop: Workshop) -> BookingStatus {
-        if (bookingsList.contains(where: {$0.workshopID == workshop.id})) {
+        if (userBookings.contains(where: {$0.workshopID == workshop.id})) {
             return .alreadyBooked
         }
         

@@ -16,7 +16,7 @@ struct BookingsView: View {
         NavigationStack {
             ZStack {
               BackgroundView()
-                if (bookingsVM.bookingsList.count == 0) {
+                if (bookingsVM.userBookings.count == 0) {
                     ContentUnavailableView(.bookingsNoBookingsPrompt, systemImage: "calendar.badge.exclamationmark")
                 }
                 else {
@@ -29,7 +29,7 @@ struct BookingsView: View {
                                 ){
                                     Task {
                                         await bookingsVM.cancelReservation(reservationID: booking.id)
-                                        await bookingsVM.bookingsList
+                                        await bookingsVM.loadBookings()
                                     }
                                 }
                             }
@@ -40,7 +40,7 @@ struct BookingsView: View {
             .navigationTitle(.navTitleBookings)
         }
         .task {
-            await bookingsVM.bookingsList
+            await bookingsVM.loadBookings()
         }
     }
 }
