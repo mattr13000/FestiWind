@@ -535,8 +535,8 @@
         },
         "fr" : {
           "stringUnit" : {
-            "state" : "needs_review",
-            "value" : "Request error"
+            "state" : "translated",
+            "value" : "Impossible de récupérer les données."
           }
         }
       }

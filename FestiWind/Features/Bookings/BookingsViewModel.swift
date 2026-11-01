@@ -27,10 +27,18 @@ final class BookingsViewModel {
         }
     }
     
+    func loadAll() async {
+        do {
+            try await store.getAll()
+        } catch {
+            errorMessage = .bookingsRequestError
+        }
+    }
+
     func cancelReservation(reservationID: UUID) async {
         do {
             try await store.cancelReservation(reservationID: reservationID)
-            try await store.getAll()
+            await loadAll()
         }
         catch {
             errorMessage = .bookingsCancelError

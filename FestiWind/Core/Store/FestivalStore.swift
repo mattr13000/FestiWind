@@ -19,12 +19,8 @@ final class FestivalStore {
         userBookings = try await reservationService.getUserReservations()
     }
     
-    func getWorkshops() async throws {
-        workshops = try await workshopService.getWorkshops()
-    }
-    
     func getAll() async throws {
-        userBookings = try await reservationService.getUserReservations()
+        try await getUserReservations()
         workshops = try await workshopService.getWorkshops()
     }
     

@@ -12,7 +12,7 @@ final class ScheduleViewModel {
     private let store: FestivalStore
     
     var workshops: [Workshop] {store.workshops}
-    var userBookings: [Reservation] {store.userBookings}
+    private var userBookings: [Reservation] {store.userBookings}
     
     var errorMessage: LocalizedStringResource?
     
@@ -31,7 +31,7 @@ final class ScheduleViewModel {
     func postReservation(workshopID: UUID) async {
         do {
             try await store.postReservation(workshopID: workshopID)
-            try await store.getAll()
+            await loadAll()
         } catch {
             errorMessage = .scheduleBookingError
         }
