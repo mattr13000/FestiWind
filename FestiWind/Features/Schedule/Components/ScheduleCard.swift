@@ -12,6 +12,7 @@ struct ScheduleCard: View {
     var startTime: Date
     var endTime: Date
     var remainingSlots: Int
+    var bookingStatus: BookingStatus
     var action: () -> Void
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
@@ -37,23 +38,22 @@ struct ScheduleCard: View {
                 Spacer()
                 
                 Text(.scheduleRemainingSpots)
-                
-                // DONT FORGET TO GRAY BUTTON IF THIS = 0 LATER !!
-                
+
                 Text(String(remainingSlots))
                     
             }
             .font(.subheadline)
                 .foregroundColor(.gray)
             GlassButtonView(
-                buttonText: .commonBookPrompt,
+                buttonText: bookingStatus.resource,
                 frameMaxWidth: .infinity,
                 frameMaxHeight: 1,
                 opacity: 0.3,
                 textColor: .textPrimary,
-                backgroundColor: .buttonColorActive,
+                backgroundColor: bookingStatus.buttonState ? .buttonColorInactive : .buttonColorActive,
                 action: action
             )
+            .disabled(bookingStatus.buttonState)
         }
         .padding(30)
         .background(
@@ -63,5 +63,5 @@ struct ScheduleCard: View {
 }
 
 #Preview {
-    ScheduleCard(title: "Placeholder", startTime: Date(), endTime: Date(), remainingSlots: 6){}
+    ScheduleCard(title: "Placeholder", startTime: Date(), endTime: Date(), remainingSlots: 6, bookingStatus: .alreadyBooked){}
 }

@@ -11,11 +11,11 @@ struct ReservationService {
     private let webService = WebService()
     
     func getUserReservations() async throws -> [Reservation] {
-        let response: UserReservationsDTO = try await webService.request(
+        let response: [ReservationDTO] = try await webService.request(
             "reservations/me",
             requiresAuth: true
         )
-        return response.workshopReservationsDTO.map{Reservation($0)}
+        return response.map{Reservation($0)}
     }
     
     func postReservation(workshopID: UUID) async throws {

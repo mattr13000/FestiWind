@@ -39,7 +39,7 @@ struct DetailScheduleView: View {
                             .padding(.bottom, 20)
                             .foregroundColor(.black)
                         GlassButtonView(
-                            buttonText: .commonBookPrompt,
+                            buttonText: .scheduleButtonEnabled,
                             frameMaxWidth: .infinity,
                             frameMaxHeight: 1,
                             opacity: 0.3,

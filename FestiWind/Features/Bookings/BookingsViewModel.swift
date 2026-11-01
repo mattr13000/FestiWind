@@ -9,22 +9,36 @@ import SwiftUI
 
 @Observable
 final class BookingsViewModel {
-    private let reservationService = ReservationService()
-    var bookingsList: [Reservation] = []
+    private let store: FestivalStore
+    
+    var userBookings: [Reservation] {store.userBookings}
+    
     var errorMessage: LocalizedStringResource?
     
-    func getUserReservationsList() async {
+    init(store: FestivalStore) {
+        self.store = store
+    }
+    
+    func loadBookings() async {
         do {
-            bookingsList = try await reservationService.getUserReservations()
-        }
-        catch {
+            try await store.getUserReservations()
+        } catch {
             errorMessage = .bookingsRequestError
         }
     }
     
+    func loadAll() async {
+        do {
+            try await store.getAll()
+        } catch {
+            errorMessage = .bookingsRequestError
+        }
+    }
+
     func cancelReservation(reservationID: UUID) async {
         do {
-            try await reservationService.cancelReservation(reservationID: reservationID)
+            try await store.cancelReservation(reservationID: reservationID)
+            await loadAll()
         }
         catch {
             errorMessage = .bookingsCancelError
