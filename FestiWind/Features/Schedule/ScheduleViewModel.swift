@@ -38,8 +38,7 @@ final class ScheduleViewModel {
     
     func loadAll() async {
         do {
-            try await store.getWorkshops()
-            try await store.getUserReservations()
+            try await store.getAll()
         } catch {
             errorMessage = .commonRequestError
         }
@@ -48,7 +47,7 @@ final class ScheduleViewModel {
     func postReservation(workshopID: UUID) async {
         do {
             try await store.postReservation(workshopID: workshopID)
-            await loadAll()
+            try await store.getAll()
         } catch {
             errorMessage = .scheduleBookingError
         }
@@ -59,7 +58,7 @@ final class ScheduleViewModel {
             return .alreadyBooked
         }
         
-        if (workshop.remainingSlots == 0) {
+        if (workshop.remainingSlots <= 0) {
             return .workshopFull
         }
         

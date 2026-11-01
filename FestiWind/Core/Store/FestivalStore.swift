@@ -23,6 +23,11 @@ final class FestivalStore {
         workshops = try await workshopService.getWorkshops()
     }
     
+    func getAll() async throws {
+        userBookings = try await reservationService.getUserReservations()
+        workshops = try await workshopService.getWorkshops()
+    }
+    
     func postReservation(workshopID: UUID) async throws {
         try await reservationService.postReservation(workshopID: workshopID)
     }

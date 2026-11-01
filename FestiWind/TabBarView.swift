@@ -22,8 +22,6 @@ struct TabBarView: View {
                 ProfileView()
             }
         }
-        .environment(festivalStore)
-
     }
 }
 
