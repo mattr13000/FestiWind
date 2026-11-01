@@ -9,16 +9,43 @@ import SwiftUI
 
 @Observable
 final class ScheduleViewModel {
-    let workshopService = WorkshopService()
-    var workshopList: [Workshop] = []
+    private let store: FestivalStore
+    
+    var workshops: [Workshop] {store.workshops}
+    private var userBookings: [Reservation] {store.userBookings}
+    
     var errorMessage: LocalizedStringResource?
     
-    func getWorkshopList() async {
+    init(store: FestivalStore) {
+        self.store = store
+    }
+    
+    func loadAll() async {
         do {
-            workshopList = try await workshopService.getWorkshops()
+            try await store.getAll()
+        } catch {
+            errorMessage = .commonRequestError
         }
-        catch {
-            errorMessage = .scheduleRequestError
+    }
+    
+    func postReservation(workshopID: UUID) async {
+        do {
+            try await store.postReservation(workshopID: workshopID)
+            await loadAll()
+        } catch {
+            errorMessage = .scheduleBookingError
         }
+    }
+    
+    func getBookingState(workshop: Workshop) -> BookingStatus {
+        if (userBookings.contains(where: {$0.workshopID == workshop.id})) {
+            return .alreadyBooked
+        }
+        
+        if (workshop.remainingSlots <= 0) {
+            return .workshopFull
+        }
+        
+        return .bookingAvailable
     }
 }

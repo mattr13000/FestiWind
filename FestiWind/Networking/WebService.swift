@@ -8,31 +8,34 @@
 
 import Foundation
 
-enum HTTPMethod: String {
-    case get = "GET"
-    case post = "POST"
-    case put = "PUT"
-    case patch = "PATCH"
-    case delete = "DELETE"
-}
-
-
-struct APIClient {
+struct WebService {
     private let baseURL = URL(string: "http://127.0.0.1:8080")!
 
     func request<T: Decodable>(
         _ path: String,
-        method: String = HTTPMethod.get.rawValue,
-        body: (any Encodable)? = nil
+        method: HTTPMethod = .get,
+        body: (any Encodable)? = nil,
+        requiresAuth: Bool = false
     ) async throws -> T {
         let url = baseURL.appendingPathComponent(path)
 
         var request = URLRequest(url: url)
-        request.httpMethod = method
+        request.httpMethod = method.rawValue
         request.setValue(
             "application/json",
             forHTTPHeaderField: "Content-Type"
         )
+        
+        if requiresAuth {
+            guard let token = try await KeychainManager.getToken() else {
+                throw URLError(.userAuthenticationRequired)
+            }
+            
+            request.setValue(
+                "Bearer \(token)",
+                forHTTPHeaderField: "Authorization"
+            )
+        }
 
         if let body {
             request.httpBody = try JSONEncoder().encode(body)
@@ -54,7 +57,10 @@ struct APIClient {
                 ]
             )
         }
+        
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .iso8601
 
-        return try JSONDecoder().decode(T.self, from: data)
+        return try decoder.decode(T.self, from: data)
     }
 }

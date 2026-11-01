@@ -8,15 +8,30 @@
 import SwiftUI
 
 struct ScheduleView: View {
-    @State private var scheduleVM = ScheduleViewModel()
+    @State private var scheduleVM: ScheduleViewModel
+    
+    init(store: FestivalStore) {
+        _scheduleVM = State(initialValue: ScheduleViewModel(store: store))
+    }
+    
     var body: some View {
         NavigationStack {
             ZStack {
                 BackgroundView()
                 ScrollView {
                     VStack {
-                        ForEach (scheduleVM.workshopList) { workshop in
-                            ScheduleCard(title: workshop.name, remainingSpots: (workshop.capacityMax - workshop.totalSubscribers))
+                        ForEach (scheduleVM.workshops) { workshop in
+                            ScheduleCard(
+                                title: workshop.name,
+                                startTime: workshop.startTime,
+                                endTime: workshop.endTime,
+                                remainingSlots: workshop.remainingSlots,
+                                bookingStatus: scheduleVM.getBookingState(workshop: workshop))
+                            {
+                                Task {
+                                    await scheduleVM.postReservation( workshopID: workshop.id)
+                                }
+                            }
                         }
                     }
                 }
@@ -24,12 +39,11 @@ struct ScheduleView: View {
             }
         }
         .task {
-            await scheduleVM.getWorkshopList()
-            print(scheduleVM.workshopList)
+            await scheduleVM.loadAll()
         }
     }
 }
 
 #Preview {
-    ScheduleView()
+    ScheduleView(store: FestivalStore())
 }
