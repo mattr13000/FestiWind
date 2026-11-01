@@ -22,7 +22,7 @@ struct BookingsView: View {
                 else {
                 ScrollView {
                     VStack(alignment: .center) {
-                            ForEach (bookingsVM.bookingsList) { booking in
+                            ForEach (bookingsVM.userBookings) { booking in
                                 BookingsCard(title: booking.workshopName,
                                              startTime: booking.startTime,
                                              endTime: booking.endTime

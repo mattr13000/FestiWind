@@ -20,7 +20,7 @@ struct ScheduleView: View {
                 BackgroundView()
                 ScrollView {
                     VStack {
-                        ForEach (scheduleVM.workshopList) { workshop in
+                        ForEach (scheduleVM.workshops) { workshop in
                             ScheduleCard(
                                 title: workshop.name,
                                 startTime: workshop.startTime,
