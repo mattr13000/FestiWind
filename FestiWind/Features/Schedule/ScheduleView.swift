@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ScheduleView: View {
+    @Environment(ReservationManager.self) var reservationManager
     @State private var scheduleVM = ScheduleViewModel()
     var body: some View {
         NavigationStack {
@@ -16,10 +17,12 @@ struct ScheduleView: View {
                 ScrollView {
                     VStack {
                         ForEach (scheduleVM.workshopList) { workshop in
-                            ScheduleCard(title: workshop.name,
-                                         startTime: workshop.startTime,
-                                         endTime: workshop.endTime,
-                                         remainingSlots: workshop.remainingSlots)
+                            ScheduleCard(
+                                title: workshop.name,
+                                startTime: workshop.startTime,
+                                endTime: workshop.endTime,
+                                remainingSlots: workshop.remainingSlots,
+                                isActive: true)
                             {
                                 Task {
                                     await scheduleVM.postReservation( workshopID: workshop.id)
@@ -39,4 +42,5 @@ struct ScheduleView: View {
 
 #Preview {
     ScheduleView()
+        .environment(ReservationManager())
 }
