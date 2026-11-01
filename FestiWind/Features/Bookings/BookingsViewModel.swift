@@ -9,7 +9,6 @@ import SwiftUI
 
 @Observable
 final class BookingsViewModel {
-    private let reservationService = ReservationService()
     private let store: FestivalStore
     
     var userBookings: [Reservation] {store.userBookings}

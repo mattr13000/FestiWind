@@ -9,15 +9,12 @@ import SwiftUI
 
 @Observable
 final class ScheduleViewModel {
-    private let workshopService = WorkshopService()
-    private let reservationService = ReservationService()
+    private let store: FestivalStore
     
     var workshops: [Workshop] {store.workshops}
     var userBookings: [Reservation] {store.userBookings}
     
     var errorMessage: LocalizedStringResource?
-    
-    private let store: FestivalStore
     
     init(store: FestivalStore) {
         self.store = store
