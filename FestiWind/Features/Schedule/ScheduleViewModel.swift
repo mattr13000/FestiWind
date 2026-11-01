@@ -39,9 +39,19 @@ final class ScheduleViewModel {
         }
     }
     
+    func loadAll() async {
+        do {
+            try await store.getWorkshops()
+            try await store.getUserReservations()
+        } catch {
+            errorMessage = .commonRequestError
+        }
+    }
+    
     func postReservation(workshopID: UUID) async {
         do {
             try await store.postReservation(workshopID: workshopID)
+            await loadAll()
         } catch {
             errorMessage = .scheduleBookingError
         }

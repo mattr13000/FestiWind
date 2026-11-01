@@ -524,6 +524,17 @@
         }
       }
     },
+    "common.request_error" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Request error"
+          }
+        }
+      }
+    },
     "common.surname_placeholder" : {
       "extractionState" : "manual",
       "localizations" : {

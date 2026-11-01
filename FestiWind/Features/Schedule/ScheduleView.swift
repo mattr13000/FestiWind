@@ -39,8 +39,7 @@ struct ScheduleView: View {
             }
         }
         .task {
-            await scheduleVM.loadWorkshops()
-            await scheduleVM.loadBookings()
+            await scheduleVM.loadAll()
         }
     }
 }
