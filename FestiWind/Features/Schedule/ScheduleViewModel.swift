@@ -20,22 +20,6 @@ final class ScheduleViewModel {
         self.store = store
     }
     
-    func loadWorkshops() async {
-        do {
-            try await store.getWorkshops()
-        } catch {
-            errorMessage = .scheduleRequestError
-        }
-    }
-    
-    func loadBookings() async {
-        do {
-            try await store.getUserReservations()
-        } catch {
-            errorMessage = .bookingsRequestError
-        }
-    }
-    
     func loadAll() async {
         do {
             try await store.getAll()
