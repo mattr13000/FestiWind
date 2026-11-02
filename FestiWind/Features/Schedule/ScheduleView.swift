@@ -10,8 +10,8 @@ import SwiftUI
 struct ScheduleView: View {
     @State private var scheduleVM: ScheduleViewModel
     
-    init(store: FestivalStore) {
-        _scheduleVM = State(initialValue: ScheduleViewModel(store: store))
+    init(manager: FestivalManager) {
+        _scheduleVM = State(initialValue: ScheduleViewModel(manager: manager))
     }
     
     var body: some View {
@@ -45,5 +45,5 @@ struct ScheduleView: View {
 }
 
 #Preview {
-    ScheduleView(store: FestivalStore())
+    ScheduleView(manager: FestivalManager())
 }

@@ -9,8 +9,8 @@ import SwiftUI
 
 struct BookingsView: View {
     @State private var bookingsVM: BookingsViewModel
-    init(store: FestivalStore) {
-        _bookingsVM = State(initialValue: BookingsViewModel(store: store))
+    init(manager: FestivalManager) {
+        _bookingsVM = State(initialValue: BookingsViewModel(manager: manager))
     }
     var body: some View {
         NavigationStack {
@@ -45,5 +45,5 @@ struct BookingsView: View {
 }
 
 #Preview {
-    BookingsView(store: FestivalStore())
+    BookingsView(manager: FestivalManager())
 }

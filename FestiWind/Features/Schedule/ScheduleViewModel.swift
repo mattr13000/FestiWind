@@ -9,10 +9,10 @@ import SwiftUI
 
 @Observable
 final class ScheduleViewModel {
-    private let store: FestivalStore
-    
-    var workshops: [Workshop] {store.workshops}
-    private var userBookings: [Reservation] {store.userBookings}
+    private let manager: FestivalManager
+
+    var workshops: [Workshop] {manager.store.workshops}
+    private var userBookings: [Reservation] {manager.store.userBookings}
     
     private let duration: Duration = .milliseconds(800)
     
@@ -20,13 +20,13 @@ final class ScheduleViewModel {
     
     var errorMessage: LocalizedStringResource?
     
-    init(store: FestivalStore) {
-        self.store = store
+    init(manager: FestivalManager) {
+        self.manager = manager
     }
     
     func loadAll() async {
         do {
-            try await store.getAll()
+            try await manager.getAll()
         } catch {
             errorMessage = .commonRequestError
         }
@@ -36,7 +36,7 @@ final class ScheduleViewModel {
         loadingWorkshopIDs.insert(workshopID)
         async let delay = Task.sleep(for: duration)
         do {
-            try await store.postReservation(workshopID: workshopID)
+            try await manager.postReservation(workshopID: workshopID)
             await loadAll()
         } catch {
             errorMessage = .scheduleBookingError
