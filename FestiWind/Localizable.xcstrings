@@ -66,6 +66,23 @@
         }
       }
     },
+    "auth.error_register_failed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Register failed"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Échec de l’inscription"
+          }
+        }
+      }
+    },
     "auth.error.loginFailed" : {
       "extractionState" : "manual",
       "localizations" : {

@@ -14,11 +14,9 @@ final class ScheduleViewModel {
     var workshops: [Workshop] {store.workshops}
     private var userBookings: [Reservation] {store.userBookings}
     
-    private let loadingDuration: Duration = .milliseconds(800)
-    private let successDuration: Duration = .milliseconds(1200)
+    private let duration: Duration = .milliseconds(800)
     
     private(set) var loadingWorkshopIDs: Set<UUID> = []
-    private(set) var justBookedWorkshopIDs: Set<UUID> = []
     
     var errorMessage: LocalizedStringResource?
     

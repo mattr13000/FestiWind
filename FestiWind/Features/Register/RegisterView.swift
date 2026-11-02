@@ -8,30 +8,60 @@
 import SwiftUI
 
 struct RegisterView: View {
+    @Environment(AuthManager.self) var authManager
     @State private var name: String = ""
+    @State private var email: String = ""
+    @State private var password: String = ""
+    @State private var passwordConfirm: String = ""
     var body: some View {
         NavigationStack {
         ZStack {
-            BackgroundView()
+            HomeBackgroundImageView()
                 VStack {
                     Spacer()
                     VStack(spacing: 20) {
-                        HStack {
-                            TextFieldView(textFieldContent: $name, placeholderText: .commonNamePlaceholder, frameMaxWidth: 150, isSecure: false)
-                            Spacer()
-                            TextFieldView(textFieldContent: $name, placeholderText: .commonSurnamePlaceholder, frameMaxWidth: 150, isSecure: false)
-                            
-                        }
-                        .frame(maxWidth: 363)
-                        TextFieldView(textFieldContent: $name, placeholderText: .commonEmailPlaceholder, frameMaxWidth: 330, isSecure: false)
-                        TextFieldView(textFieldContent: $name, placeholderText: .commonPasswordPlaceholder, frameMaxWidth: 330, isSecure: true)
-                        TextFieldView(textFieldContent: $name, placeholderText: .commonPwConfirmPlaceholder, frameMaxWidth: 330, isSecure: true)
+                        TextFieldView(
+                            textFieldContent: $name,
+                            placeholderText: .commonNamePlaceholder,
+                            frameMaxWidth: 330,
+                            isSecure: false
+                        )
+                        TextFieldView(
+                            textFieldContent: $email,
+                            placeholderText: .commonEmailPlaceholder,
+                            frameMaxWidth: 330,
+                            isSecure: false
+                        )
+                        TextFieldView(
+                            textFieldContent: $password,
+                            placeholderText: .commonPasswordPlaceholder,
+                            frameMaxWidth: 330,
+                            isSecure: true
+                        )
+                        TextFieldView(
+                            textFieldContent: $passwordConfirm,
+                            placeholderText: .commonPwConfirmPlaceholder,
+                            frameMaxWidth: 330,
+                            isSecure: true
+                        )
                     }
                     Spacer()
-                    GlassButtonView(buttonText: .authRegister, frameMaxWidth: 280, opacity: 0.3, textColor: .textPrimary, backgroundColor: .buttonColorActive){}
-                    HStack {
-                        Text(.authAlreadyRegisteredPrompt)
-                        TextButtonView(buttonText: .authLogin)
+                    GlassButtonView(
+                        buttonText: .authRegister,
+                        frameMaxWidth: 280,
+                        opacity: 0.3,
+                        textColor: .textPrimary,
+                        backgroundColor: .buttonColorActive
+                    )
+                    {
+                        Task {
+                            await authManager.register(
+                                name: name,
+                                email: email,
+                                password: password,
+                                passwordConfirm: passwordConfirm
+                            )
+                        }
                     }
                     Spacer()
                 }
@@ -46,4 +76,5 @@ struct RegisterView: View {
 
 #Preview {
     RegisterView()
+        .environment(AuthManager())
 }

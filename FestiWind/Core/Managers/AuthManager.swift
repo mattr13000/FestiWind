@@ -59,4 +59,17 @@ final class AuthManager {
             authState = .authenticated
         }
     }
+    
+    func register(name: String, email: String, password: String, passwordConfirm: String) async {
+        guard name.count > 3 else {return}
+        
+        guard email.isValidEmail else {return}
+        
+        guard password == passwordConfirm else {return}
+        do {
+            try await authService.register(name: name, email: email, password: password)
+        } catch {
+            errorMessage = .authErrorRegisterFailed
+        }
+    }
 }
