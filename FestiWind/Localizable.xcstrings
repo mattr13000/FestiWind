@@ -501,6 +501,23 @@
         }
       }
     },
+    "common.pending_label" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pending …"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En attente ..."
+          }
+        }
+      }
+    },
     "common.pw_confirm_placeholder" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -777,6 +794,9 @@
           }
         }
       }
+    },
+    "Trigger Bounce" : {
+
     }
   },
   "version" : "1.2"

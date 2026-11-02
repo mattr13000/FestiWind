@@ -14,6 +14,12 @@ final class ScheduleViewModel {
     var workshops: [Workshop] {store.workshops}
     private var userBookings: [Reservation] {store.userBookings}
     
+    private let loadingDuration: Duration = .milliseconds(800)
+    private let successDuration: Duration = .milliseconds(1200)
+    
+    private(set) var loadingWorkshopIDs: Set<UUID> = []
+    private(set) var justBookedWorkshopIDs: Set<UUID> = []
+    
     var errorMessage: LocalizedStringResource?
     
     init(store: FestivalStore) {
@@ -29,15 +35,23 @@ final class ScheduleViewModel {
     }
     
     func postReservation(workshopID: UUID) async {
+        loadingWorkshopIDs.insert(workshopID)
+        async let delay = Task.sleep(for: duration)
         do {
             try await store.postReservation(workshopID: workshopID)
             await loadAll()
         } catch {
             errorMessage = .scheduleBookingError
         }
+        try? await delay
+        loadingWorkshopIDs.remove(workshopID)
     }
     
     func getBookingState(workshop: Workshop) -> BookingStatus {
+        if (loadingWorkshopIDs.contains(workshop.id)) {
+            return .pendingRequest
+        }
+        
         if (userBookings.contains(where: {$0.workshopID == workshop.id})) {
             return .alreadyBooked
         }

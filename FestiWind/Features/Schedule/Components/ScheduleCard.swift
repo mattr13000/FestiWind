@@ -40,6 +40,7 @@ struct ScheduleCard: View {
                 Text(.scheduleRemainingSpots)
 
                 Text(String(remainingSlots))
+                    .contentTransition(.numericText())
                     
             }
             .font(.subheadline)
