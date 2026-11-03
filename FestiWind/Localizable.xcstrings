@@ -146,6 +146,23 @@
         }
       }
     },
+    "auth.logout_fail" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log out failed"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Déconnexion échouée"
+          }
+        }
+      }
+    },
     "auth.no_account_prompt" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -618,11 +635,62 @@
         }
       }
     },
+    "Key" : {
+      "extractionState" : "manual"
+    },
     "Kite surf" : {
 
     },
     "Le kitesurf, ou planche arétractée a était créer dans les années 2000." : {
 
+    },
+    "Log out" : {
+
+    },
+    "logout.alert_prompt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log out ?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se déconnecter ?"
+          }
+        }
+      }
+    },
+    "logout.cancel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        }
+      }
+    },
+    "logout.confirm" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log out"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Se déconnecter"
+          }
+        }
+      }
     },
     "navTitle.bookings" : {
       "extractionState" : "manual",

@@ -60,6 +60,16 @@ final class AuthManager {
         }
     }
     
+    func logout() async {
+        do {
+            try await KeychainManager.deleteToken()
+            authState = .unauthenticated
+            jwtToken = nil
+        } catch {
+            errorMessage = .authLogoutFail
+        }
+    }
+    
     func register(name: String, email: String, password: String, passwordConfirm: String) async {
         guard name.count > 3 else {return}
         

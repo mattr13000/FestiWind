@@ -9,4 +9,6 @@ import Foundation
 
 struct UserDTO: Decodable {
     let id: UUID
+    let name: String
+    let email: String
 }
