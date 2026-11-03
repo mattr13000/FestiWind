@@ -38,6 +38,7 @@ struct ScheduleView: View {
                                     }
                                 }
                             }
+                            .buttonStyle(.plain)
                         }
                     }
                 }

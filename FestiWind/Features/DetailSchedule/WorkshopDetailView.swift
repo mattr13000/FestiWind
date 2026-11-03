@@ -17,15 +17,15 @@ struct WorkshopDetailView: View {
     }
     
     var body: some View {
-        NavigationStack {
-            ZStack {
-                BackgroundView()
+        ZStack {
+            BackgroundView()
+            if let workshop = workshopDetailVM.workshop {
                 VStack {
                     BackgroundImageView()
                         .frame(height: 300)
                     VStack(alignment: .leading, spacing: 12) {
                         HStack {
-                            Text(workshopDetailVM.workshop!.name)
+                            Text(workshop.name)
                                 .font(.title2)
                                 .fontWeight(.bold)
                                 .foregroundColor(.black)
@@ -36,29 +36,38 @@ struct WorkshopDetailView: View {
                         }
                         HStack {
                             Image(systemName: "calendar")
-                            Text("\(workshopDetailVM.workshop!.startTime.formatted(.dateTime.weekday(.wide).day().month(.wide)))")
+                            Text("\(workshop.startTime.formatted(.dateTime.weekday(.wide).day().month(.wide)))")
                         }
                         .font(.subheadline)
-                        
+
                         HStack {
                             Image(systemName: "clock")
                                 .font(.subheadline)
-                            Text("\(workshopDetailVM.workshop!.startTime.formatted(.dateTime.hour().minute())) - \(workshopDetailVM.workshop!.endTime.formatted(.dateTime.hour().minute()))")
+                            Text("\(workshop.startTime.formatted(.dateTime.hour().minute())) - \(workshop.endTime.formatted(.dateTime.hour().minute()))")
                         }
                         Text(.detailDescriptionPlaceholder)
                             .foregroundColor(.black)
-                        Text(workshopDetailVM.workshop!.description)
+                        Text(workshop.description)
                             .padding(.bottom, 20)
                             .foregroundColor(.black)
                         GlassButtonView(
-                            buttonText: .scheduleButtonEnabled,
+                            buttonText: workshopDetailVM.getBookingState(workshop: workshop).resource,
                             frameMaxWidth: .infinity,
                             frameMaxHeight: 1,
                             opacity: 0.3,
                             textColor: .textPrimary,
-                            backgroundColor: .buttonColorActive,
+                            backgroundColor: workshopDetailVM.getBookingState(workshop: workshop).buttonState ? .buttonColorInactive : .buttonColorActive,
                         ) {
-                            
+                            Task {
+                                await workshopDetailVM.postReservation(workshopID: workshop.id)
+                            }
+                        }
+                        .disabled(workshopDetailVM.getBookingState(workshop: workshop).buttonState)
+
+                        if let errorMessage = workshopDetailVM.errorMessage {
+                            Text(errorMessage)
+                                .font(.subheadline)
+                                .foregroundColor(.red)
                         }
                     }
                     .padding(36)
@@ -68,6 +77,10 @@ struct WorkshopDetailView: View {
                     )
                     Spacer()
                 }
+            } else if let errorMessage = workshopDetailVM.errorMessage {
+                Text(errorMessage)
+            } else {
+                ProgressView()
             }
         }
         .task {
@@ -77,4 +90,7 @@ struct WorkshopDetailView: View {
 }
 
 #Preview {
+    NavigationStack {
+        WorkshopDetailView(manager: FestivalManager(), workshopID: UUID())
+    }
 }
