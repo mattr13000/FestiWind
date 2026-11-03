@@ -17,9 +17,6 @@
         }
       }
     },
-    "11 pm to 12 pm" : {
-
-    },
     "app.title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -647,7 +644,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Descritpion :"
+            "value" : "Description :"
           }
         }
       }
@@ -657,12 +654,6 @@
     },
     "Key" : {
       "extractionState" : "manual"
-    },
-    "Kite surf" : {
-
-    },
-    "Le kitesurf, ou planche arétractée a était créer dans les années 2000." : {
-
     },
     "Log out" : {
 
@@ -784,7 +775,7 @@
         }
       }
     },
-    "password must be at least 8 characters long" : {
+    "Password must be at least 8 characters long" : {
 
     },
     "Passwords must be identical" : {

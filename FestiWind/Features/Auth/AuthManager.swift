@@ -88,7 +88,7 @@ final class AuthManager {
         }
         
         guard password.count > 5 else {
-            return passwordError = "password must be at least 8 characters long"
+            return passwordError = "Password must be at least 8 characters long"
         }
         
         guard password == passwordConfirm else {

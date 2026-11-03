@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct DetailScheduleView: View {
+    var workshop: Workshop
+    var action: () -> Void
     var body: some View {
         NavigationStack{
             ZStack{
@@ -17,7 +19,7 @@ struct DetailScheduleView: View {
                         .frame(height: 300)
                     VStack(alignment: .leading, spacing: 12) {
                         HStack {
-                            Text("Kite surf")
+                            Text(workshop.name)
                                 .font(.title2)
                                 .fontWeight(.bold)
                                 .foregroundColor(.black)
@@ -26,16 +28,20 @@ struct DetailScheduleView: View {
                                 .font(.subheadline)
                                 .foregroundColor(.gray)
                         }
-                        HStack() {
+                        HStack {
+                            Image(systemName: "calendar")
+                            Text("\(workshop.startTime.formatted(.dateTime.weekday(.wide).day().month(.wide)))")
+                        }
+                        .font(.subheadline)
+                        
+                        HStack {
                             Image(systemName: "clock")
                                 .font(.subheadline)
-                            Text("11 pm to 12 pm")
-                                .font(.subheadline)
+                            Text("\(workshop.startTime.formatted(.dateTime.hour().minute())) - \(workshop.endTime.formatted(.dateTime.hour().minute()))")
                         }
                         Text(.detailDescriptionPlaceholder)
-                        //                    .padding(.bottom, 20)
                             .foregroundColor(.black)
-                        Text("Le kitesurf, ou planche arétractée a était créer dans les années 2000.")
+                        Text(workshop.description)
                             .padding(.bottom, 20)
                             .foregroundColor(.black)
                         GlassButtonView(
@@ -44,8 +50,9 @@ struct DetailScheduleView: View {
                             frameMaxHeight: 1,
                             opacity: 0.3,
                             textColor: .textPrimary,
-                            backgroundColor: .buttonColorCancel
-                        ){}
+                            backgroundColor: .buttonColorActive,
+                            action: action
+                        )
                     }
                     .padding(36)
                     .background(
@@ -60,5 +67,4 @@ struct DetailScheduleView: View {
 }
 
 #Preview {
-    DetailScheduleView()
 }

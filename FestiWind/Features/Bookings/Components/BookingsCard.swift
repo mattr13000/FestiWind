@@ -31,6 +31,7 @@ struct BookingsCard: View {
                 Text("\(startTime.formatted(.dateTime.weekday(.wide).day().month(.wide)))")
             }
             .font(.subheadline)
+            .foregroundStyle(.primary)
             
             HStack {
                 Image(systemName: "clock")
@@ -39,7 +40,7 @@ struct BookingsCard: View {
             }
             .font(.subheadline)
             .padding(.bottom, 20)
-            .foregroundColor(.black)
+            .foregroundStyle(.primary)
             GlassButtonView(
                 buttonText: .commonCancel,
                 frameMaxWidth: .infinity,

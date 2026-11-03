@@ -21,15 +21,27 @@ struct ScheduleView: View {
                 ScrollView {
                     VStack {
                         ForEach (scheduleVM.workshops) { workshop in
-                            ScheduleCard(
-                                title: workshop.name,
-                                startTime: workshop.startTime,
-                                endTime: workshop.endTime,
-                                remainingSlots: workshop.remainingSlots,
-                                bookingStatus: scheduleVM.getBookingState(workshop: workshop))
-                            {
-                                Task {
-                                    await scheduleVM.postReservation( workshopID: workshop.id)
+                            NavigationLink(destination: DetailScheduleView(
+                                workshop: workshop,
+                                action: {
+                                    Task {
+                                        await scheduleVM.postReservation(
+                                            workshopID: workshop.id
+                                        )
+                                    }
+                                }
+                                )
+                            ) {
+                                ScheduleCard(
+                                    title: workshop.name,
+                                    startTime: workshop.startTime,
+                                    endTime: workshop.endTime,
+                                    remainingSlots: workshop.remainingSlots,
+                                    bookingStatus: scheduleVM.getBookingState(workshop: workshop))
+                                {
+                                    Task {
+                                        await scheduleVM.postReservation( workshopID: workshop.id)
+                                    }
                                 }
                             }
                         }
