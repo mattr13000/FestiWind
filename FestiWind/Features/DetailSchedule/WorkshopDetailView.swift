@@ -7,14 +7,19 @@
 
 import SwiftUI
 
-struct DetailScheduleView: View {
-    var workshop: Workshop
-    var action: () -> Void
+struct WorkshopDetailView: View {
+    
+    @State private var workshopDetailVM: WorkshopDetailViewModel
+    var workshopID: UUID
+    init(manager: FestivalManager) {
+        _workshopDetailVM = State(initialValue: WorkshopDetailViewModel(manager: manager))
+    }
+    
     var body: some View {
-        NavigationStack{
-            ZStack{
+        NavigationStack {
+            ZStack {
                 BackgroundView()
-                VStack{
+                VStack {
                     BackgroundImageView()
                         .frame(height: 300)
                     VStack(alignment: .leading, spacing: 12) {
@@ -51,8 +56,9 @@ struct DetailScheduleView: View {
                             opacity: 0.3,
                             textColor: .textPrimary,
                             backgroundColor: .buttonColorActive,
-                            action: action
-                        )
+                        ) {
+                            
+                        }
                     }
                     .padding(36)
                     .background(
@@ -62,6 +68,9 @@ struct DetailScheduleView: View {
                     Spacer()
                 }
             }
+        }
+        .task {
+            await workshopDetailVM.fetchWorkshop(workshopID: workshopID)
         }
     }
 }

@@ -16,6 +16,10 @@ final class FestivalManager {
     func getUserReservations() async throws {
         store.userBookings = try await reservationService.getUserReservations()
     }
+    
+    func showWorkshop(workshopID: UUID) async throws -> Workshop {
+        return try await workshopService.showWorkshop(workshopID: workshopID)
+    }
 
     func getAll() async throws {
         try await getUserReservations()

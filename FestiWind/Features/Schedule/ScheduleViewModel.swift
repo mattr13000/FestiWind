@@ -9,7 +9,7 @@ import SwiftUI
 
 @Observable
 final class ScheduleViewModel {
-    private let manager: FestivalManager
+    let manager: FestivalManager
 
     var workshops: [Workshop] {manager.store.workshops}
     private var userBookings: [Reservation] {manager.store.userBookings}

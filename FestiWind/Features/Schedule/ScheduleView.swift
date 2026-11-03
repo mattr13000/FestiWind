@@ -21,17 +21,8 @@ struct ScheduleView: View {
                 ScrollView {
                     VStack {
                         ForEach (scheduleVM.workshops) { workshop in
-                            NavigationLink(destination: DetailScheduleView(
-                                workshop: workshop,
-                                action: {
-                                    Task {
-                                        await scheduleVM.postReservation(
-                                            workshopID: workshop.id
-                                        )
-                                    }
-                                }
-                                )
-                            ) {
+                            NavigationLink(destination: WorkshopDetailView(manager: scheduleVM.manager))
+                            {
                                 ScheduleCard(
                                     title: workshop.name,
                                     startTime: workshop.startTime,
