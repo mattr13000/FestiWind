@@ -209,6 +209,23 @@
         }
       }
     },
+    "auth.register_succeeded" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Registered successfully !"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inscription réussie !"
+          }
+        }
+      }
+    },
     "auth.status.authenticated" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -635,6 +652,9 @@
         }
       }
     },
+    "Invalid email" : {
+
+    },
     "Key" : {
       "extractionState" : "manual"
     },
@@ -691,6 +711,9 @@
           }
         }
       }
+    },
+    "Name must be at least 4 characters" : {
+
     },
     "navTitle.bookings" : {
       "extractionState" : "manual",
@@ -760,6 +783,12 @@
           }
         }
       }
+    },
+    "password must be at least 8 characters long" : {
+
+    },
+    "Passwords must be identical" : {
+
     },
     "placeholder" : {
       "extractionState" : "manual",

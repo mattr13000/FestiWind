@@ -7,29 +7,16 @@
 
 import Foundation
  
-struct LoginRequest: Encodable {
-    let email: String
-    let password: String
-}
 
-struct RegisterRequest: Encodable {
-    let name: String
-    let email: String
-    let password: String
-}
- 
-struct AuthResponse: Decodable {
-    let token: String
-}
  
 struct AuthService {
     private let webService = WebService()
  
     func login(email: String, password: String) async throws -> String {
-        let response: AuthResponse = try await webService.request(
+        let response: AuthResponseDTO = try await webService.request(
             "users/login",
             method: .post,
-            body: LoginRequest(email: email, password: password)
+            body: LoginRequestDTO(email: email, password: password)
         )
         return response.token
     }
@@ -43,7 +30,7 @@ struct AuthService {
         let _: UserDTO = try await webService.request(
             "users/register",
             method: .post,
-            body: RegisterRequest(name: name, email: email, password: password)
+            body: RegisterRequestDTO(name: name, email: email, password: password)
         )
     }
 }

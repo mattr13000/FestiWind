@@ -13,15 +13,23 @@ final class AuthManager {
     var authState: AuthState = .unknown
     var jwtToken: String?
     var errorMessage: LocalizedStringResource?
+    
+    var registerState: LocalizedStringResource?
+    
+    var nameTooShortError: LocalizedStringResource?
+    var emailNotValidError: LocalizedStringResource?
+    var passwordError: LocalizedStringResource?
+    
     var isLoggingIn: Bool = false
+    var isRegistering: Bool = false
     
     private let authService = AuthService()
-    private let minLoginDuration: Duration = .milliseconds(800)
+    private let minDuration: Duration = .milliseconds(800)
     
     func checkStatus() async {
         authState = .checking
         
-        async let minDelay = Task.sleep(for: minLoginDuration)
+        async let minDelay = Task.sleep(for: minDuration)
         
         do {
             jwtToken = try await KeychainManager.getToken()
@@ -39,7 +47,7 @@ final class AuthManager {
         isLoggingIn = true
         errorMessage = nil
         
-        async let minDelay = Task.sleep(for: minLoginDuration)
+        async let minDelay = Task.sleep(for: minDuration)
         
         defer {
             isLoggingIn = false
@@ -70,16 +78,35 @@ final class AuthManager {
         }
     }
     
-    func register(name: String, email: String, password: String, passwordConfirm: String) async {
-        guard name.count > 3 else {return}
+    func register(name: String, email: String, password: String, passwordConfirm: String) async throws {
+        guard name.count > 3 else {
+            return nameTooShortError = "Name must be at least 4 characters"
+        }
         
-        guard email.isValidEmail else {return}
+        guard email.isValidEmail else {
+            return emailNotValidError = "Invalid email"
+        }
         
-        guard password == passwordConfirm else {return}
+        guard password.count > 5 else {
+            return passwordError = "password must be at least 8 characters long"
+        }
+        
+        guard password == passwordConfirm else {
+            return passwordError = "Passwords must be identical"
+        }
+        
+        isRegistering = true
+        
+        async let minDelay = Task.sleep(for: minDuration)
+        
         do {
             try await authService.register(name: name, email: email, password: password)
+            registerState = .authRegisterSucceeded
         } catch {
-            errorMessage = .authErrorRegisterFailed
+            registerState = .authErrorRegisterFailed
         }
+        try? await minDelay
+        
+        isRegistering = false
     }
 }

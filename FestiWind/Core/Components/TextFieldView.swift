@@ -10,15 +10,23 @@ import SwiftUI
 struct TextFieldView: View {
     @Binding var textFieldContent: String
     var placeholderText: LocalizedStringResource
+    var errorText: LocalizedStringResource?
     var frameMaxWidth: CGFloat
     var isSecure: Bool
     var body: some View {
-        if isSecure {
-            SecureField(placeholderText, text: $textFieldContent)
-                .textFieldModifier(frameMaxWidth: frameMaxWidth)
-        } else {
-            TextField(placeholderText, text: $textFieldContent)
-                .textFieldModifier(frameMaxWidth: frameMaxWidth)
+        VStack(alignment: .leading) {
+            Text(errorText ?? .placeholder)
+                .font(.subheadline)
+                .foregroundStyle(.red)
+                .opacity(errorText == nil ? 0 : 1)
+                .accessibilityHidden(errorText == nil)
+            if isSecure {
+                SecureField(placeholderText, text: $textFieldContent)
+                    .textFieldModifier(frameMaxWidth: frameMaxWidth)
+            } else {
+                TextField(placeholderText, text: $textFieldContent)
+                    .textFieldModifier(frameMaxWidth: frameMaxWidth)
+            }
         }
     }
 }
