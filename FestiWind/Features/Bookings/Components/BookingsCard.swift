@@ -19,12 +19,12 @@ struct BookingsCard: View {
                 Text(title)
                     .font(.title2)
                     .fontWeight(.bold)
-                    .foregroundColor(.black)
+                    .foregroundStyle(.black)
                 
                 Spacer()
                 Text(.bookingsStatusConfirmed)
                     .font(.subheadline)
-                    .foregroundColor(.gray)
+                    .foregroundStyle(.gray)
             }
             HStack {
                 Image(systemName: "calendar")

@@ -27,7 +27,7 @@ struct WorkshopDetailView: View {
                         Text(workshop.name)
                             .font(.title2)
                             .fontWeight(.bold)
-                            .foregroundColor(.black)
+                            .foregroundStyle(.black)
                         HStack {
                             Image(systemName: "calendar")
                             Text("\(workshop.startTime.formatted(.dateTime.weekday(.wide).day().month(.wide)))")
@@ -40,10 +40,10 @@ struct WorkshopDetailView: View {
                             Text("\(workshop.startTime.formatted(.dateTime.hour().minute())) - \(workshop.endTime.formatted(.dateTime.hour().minute()))")
                         }
                         Text(.detailDescriptionPlaceholder)
-                            .foregroundColor(.black)
+                            .foregroundStyle(.black)
                         Text(workshop.description)
                             .padding(.bottom, 20)
-                            .foregroundColor(.black)
+                            .foregroundStyle(.black)
                         GlassButtonView(
                             buttonText: workshopDetailVM.getBookingState(workshop: workshop).resource,
                             frameMaxWidth: .infinity,
@@ -62,7 +62,7 @@ struct WorkshopDetailView: View {
                         if let errorMessage = workshopDetailVM.errorMessage {
                             Text(errorMessage)
                                 .font(.subheadline)
-                                .foregroundColor(.red)
+                                .foregroundStyle(.red)
                         }
                     }
                     .padding(36)

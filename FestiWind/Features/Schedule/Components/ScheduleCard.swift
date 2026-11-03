@@ -19,7 +19,7 @@ struct ScheduleCard: View {
             Text(title)
                 .font(.title2)
                 .fontWeight(.bold)
-                .foregroundColor(.black)
+                .foregroundStyle(.black)
             
             HStack {
                 Image(systemName: "calendar")
@@ -44,7 +44,7 @@ struct ScheduleCard: View {
                     
             }
             .font(.subheadline)
-                .foregroundColor(.gray)
+                .foregroundStyle(.gray)
             GlassButtonView(
                 buttonText: bookingStatus.resource,
                 frameMaxWidth: .infinity,
