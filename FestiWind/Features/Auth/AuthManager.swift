@@ -86,19 +86,19 @@ final class AuthManager {
         registerState = nil
 
         guard name.count > 3 else {
-            return nameTooShortError = "Name must be at least 4 characters"
+            return nameTooShortError = .authErrorNameTooShort
         }
 
         guard email.isValidEmail else {
-            return emailNotValidError = "Invalid email"
+            return emailNotValidError = .authErrorInvalidEmail
         }
 
         guard password.count > 7 else {
-            return passwordError = "Password must be at least 8 characters long"
+            return passwordError = .authErrorPasswordTooShort
         }
 
         guard password == passwordConfirm else {
-            return passwordConfirmError = "Passwords must be identical"
+            return passwordConfirmError = .authErrorPasswordsMismatch
         }
 
         isRegistering = true

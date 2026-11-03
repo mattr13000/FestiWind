@@ -48,7 +48,10 @@ struct RegisterView: View {
                         )
                     }
                     Spacer()
-
+                    Text(authManager.registerState ?? .placeholder)
+                        .opacity(authManager.registerState == nil ? 0 : 1)
+                        .accessibilityHidden(authManager.registerState == nil)
+                    Spacer()
                     GlassButtonView(
                         buttonText: .authRegister,
                         frameMaxWidth: 280,

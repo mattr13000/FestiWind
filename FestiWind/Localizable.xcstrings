@@ -92,7 +92,75 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Échec de l’authentication"
+            "value" : "Échec de l’authentification"
+          }
+        }
+      }
+    },
+    "auth.error.invalid_email" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid email"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adresse e-mail invalide"
+          }
+        }
+      }
+    },
+    "auth.error.name_too_short" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Name must be at least 4 characters"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le nom doit contenir au moins 4 caractères"
+          }
+        }
+      }
+    },
+    "auth.error.password_too_short" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Password must be at least 8 characters long"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le mot de passe doit contenir au moins 8 caractères"
+          }
+        }
+      }
+    },
+    "auth.error.passwords_mismatch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passwords must be identical"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les mots de passe ne correspondent pas"
           }
         }
       }
@@ -649,9 +717,6 @@
         }
       }
     },
-    "Invalid email" : {
-
-    },
     "Key" : {
       "extractionState" : "manual"
     },
@@ -702,9 +767,6 @@
           }
         }
       }
-    },
-    "Name must be at least 4 characters" : {
-
     },
     "navTitle.bookings" : {
       "extractionState" : "manual",
@@ -774,12 +836,6 @@
           }
         }
       }
-    },
-    "Password must be at least 8 characters long" : {
-
-    },
-    "Passwords must be identical" : {
-
     },
     "placeholder" : {
       "extractionState" : "manual",
