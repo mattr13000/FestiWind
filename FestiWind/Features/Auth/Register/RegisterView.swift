@@ -9,7 +9,6 @@ import SwiftUI
 
 struct RegisterView: View {
     @Environment(AuthManager.self) var authManager
-    @Environment(\.dismiss) var dismiss
     @State private var registerForm: RegisterForm = RegisterForm()
     
     var body: some View {
@@ -43,40 +42,31 @@ struct RegisterView: View {
                         TextFieldView(
                             textFieldContent: $registerForm.passwordConfirm,
                             placeholderText: .commonPwConfirmPlaceholder,
+                            errorText: authManager.passwordConfirmError,
                             frameMaxWidth: 330,
                             isSecure: true
                         )
                     }
                     Spacer()
-                        Text(authManager.registerState ?? .placeholder)
-                            .opacity(authManager.registerState == nil ? 0 : 1)
-                            .accessibilityHidden(authManager.registerState == nil)
-                    Spacer()
+
                     GlassButtonView(
                         buttonText: .authRegister,
                         frameMaxWidth: 280,
                         opacity: 0.3,
                         textColor: .textPrimary,
-                        backgroundColor: authManager.isRegistering ? .buttonColorInactive : .buttonColorActive
+                        backgroundColor: authManager.isRegistering || authManager.isLoggingIn ? .buttonColorInactive : .buttonColorActive,
+                        isLoading: authManager.isRegistering || authManager.isLoggingIn
                     )
                     {
                         Task {
-                            do {
-                                try await authManager.register(
-                                    name: registerForm.name,
-                                    email: registerForm.email,
-                                    password: registerForm.password,
-                                    passwordConfirm: registerForm.passwordConfirm
-                                )
-                                registerForm = RegisterForm()
-                                try await Task.sleep(nanoseconds: 1_000_000_000)
-                                dismiss()
-                            } catch {
-                                authManager.registerState = .authErrorRegisterFailed
-                            }
+                            await authManager.register(
+                                name: registerForm.name,
+                                email: registerForm.email,
+                                password: registerForm.password,
+                                passwordConfirm: registerForm.passwordConfirm
+                            )
                         }
                     }
-                    .disabled(authManager.isRegistering)
                     Spacer()
                 }
                 .navigationTitle(.authRegister)

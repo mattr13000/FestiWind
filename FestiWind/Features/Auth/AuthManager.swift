@@ -18,7 +18,8 @@ final class AuthManager {
     var nameTooShortError: LocalizedStringResource?
     var emailNotValidError: LocalizedStringResource?
     var passwordError: LocalizedStringResource?
-    
+    var passwordConfirmError: LocalizedStringResource?
+
     var isLoggingIn: Bool = false
     var isRegistering: Bool = false
     
@@ -77,35 +78,46 @@ final class AuthManager {
         }
     }
     
-    func register(name: String, email: String, password: String, passwordConfirm: String) async throws {
+    func register(name: String, email: String, password: String, passwordConfirm: String) async {
+        nameTooShortError = nil
+        emailNotValidError = nil
+        passwordError = nil
+        passwordConfirmError = nil
+        registerState = nil
+
         guard name.count > 3 else {
             return nameTooShortError = "Name must be at least 4 characters"
         }
-        
+
         guard email.isValidEmail else {
             return emailNotValidError = "Invalid email"
         }
-        
-        guard password.count > 5 else {
+
+        guard password.count > 7 else {
             return passwordError = "Password must be at least 8 characters long"
         }
-        
+
         guard password == passwordConfirm else {
-            return passwordError = "Passwords must be identical"
+            return passwordConfirmError = "Passwords must be identical"
         }
-        
+
         isRegistering = true
-        
+
         async let minDelay = Task.sleep(for: minDuration)
-        
+
+        var registered = false
         do {
             try await authService.register(name: name, email: email, password: password)
-            registerState = .authRegisterSucceeded
+            registered = true
         } catch {
             registerState = .authErrorRegisterFailed
         }
         try? await minDelay
-        
+
         isRegistering = false
+
+        if registered {
+            await login(email: email, password: password)
+        }
     }
 }

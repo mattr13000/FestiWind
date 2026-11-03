@@ -45,13 +45,13 @@ struct LoginView: View {
                         frameMaxWidth: 280,
                         opacity: 0.3,
                         textColor: .textPrimary,
-                        backgroundColor: authManager.isLoggingIn ? .buttonColorInactive : .buttonColorActive)
+                        backgroundColor: authManager.isLoggingIn ? .buttonColorInactive : .buttonColorActive,
+                        isLoading: authManager.isLoggingIn)
                     {
                         Task {
                             await authManager.login(email: email, password: password)
                         }
                     }
-                    .disabled(authManager.isLoggingIn)
                     HStack {
                         Text(.authNoAccountPrompt)
                             .font(.subheadline)

@@ -57,6 +57,7 @@ struct WorkshopDetailView: View {
                             opacity: 0.3,
                             textColor: .textPrimary,
                             backgroundColor: workshopDetailVM.getBookingState(workshop: workshop).buttonState ? .buttonColorInactive : .buttonColorActive,
+                            isLoading: workshopDetailVM.isBooking
                         ) {
                             Task {
                                 await workshopDetailVM.postReservation(workshopID: workshop.id)

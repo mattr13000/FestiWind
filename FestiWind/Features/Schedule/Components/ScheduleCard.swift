@@ -52,6 +52,7 @@ struct ScheduleCard: View {
                 opacity: 0.3,
                 textColor: .textPrimary,
                 backgroundColor: bookingStatus.buttonState ? .buttonColorInactive : .buttonColorActive,
+                isLoading: bookingStatus == .pendingRequest,
                 action: action
             )
             .disabled(bookingStatus.buttonState)
