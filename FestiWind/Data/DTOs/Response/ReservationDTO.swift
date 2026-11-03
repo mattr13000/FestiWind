@@ -16,7 +16,3 @@ struct ReservationDTO: Decodable {
     let endTime: Date
 }
 
-struct UserReservationsDTO: Decodable {
-    let workshopReservationsDTO: [ReservationDTO]
-}
-

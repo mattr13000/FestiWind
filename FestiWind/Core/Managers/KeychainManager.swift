@@ -8,10 +8,7 @@
 import SwiftUI
 
 enum KeychainError: Error {
-    case noPassword
     case unexpectedData
-    case unexpectedPasswordData
-    case saveFailed
     case unhandledError(status: OSStatus)
 }
 

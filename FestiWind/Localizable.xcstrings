@@ -274,23 +274,6 @@
         }
       }
     },
-    "auth.register_succeeded" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Registered successfully !"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Inscription réussie !"
-          }
-        }
-      }
-    },
     "auth.status.authenticated" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -716,9 +699,6 @@
           }
         }
       }
-    },
-    "Key" : {
-      "extractionState" : "manual"
     },
     "Log out" : {
 
