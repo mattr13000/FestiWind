@@ -700,9 +700,6 @@
         }
       }
     },
-    "Log out" : {
-
-    },
     "logout.alert_prompt" : {
       "extractionState" : "manual",
       "localizations" : {

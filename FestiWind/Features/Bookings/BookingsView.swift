@@ -16,7 +16,7 @@ struct BookingsView: View {
         NavigationStack {
             ZStack {
               BackgroundView()
-                if (bookingsVM.userBookings.count == 0) {
+                if bookingsVM.userBookings.isEmpty {
                     ContentUnavailableView(.bookingsNoBookingsPrompt, systemImage: "calendar.badge.exclamationmark")
                 }
                 else {

@@ -10,7 +10,6 @@ import SwiftUI
 @Observable
 final class AuthManager {
     var authState: AuthState = .unknown
-    var jwtToken: String?
     var errorMessage: LocalizedStringResource?
     
     var registerState: LocalizedStringResource?
@@ -31,16 +30,17 @@ final class AuthManager {
         
         async let minDelay = Task.sleep(for: minDuration)
         
+        var token: String?
         do {
-            jwtToken = try await KeychainManager.getToken()
+            token = try await KeychainManager.getToken()
         }
         catch {
-            jwtToken = nil
+            token = nil
         }
-        
+
         try? await minDelay
-        
-        authState = jwtToken == nil ? .unauthenticated : .authenticated
+
+        authState = token == nil ? .unauthenticated : .authenticated
     }
     
     func login(email: String, password: String) async {
@@ -52,18 +52,19 @@ final class AuthManager {
         defer {
             isLoggingIn = false
         }
+        var loggedIn = false
         do {
             let token = try await authService.login(email: email, password: password)
             try await KeychainManager.saveToken(token: token)
-            jwtToken = token
+            loggedIn = true
         }
         catch {
             errorMessage = .authErrorLoginFailed
         }
-        
+
         try? await minDelay
-        
-        if jwtToken != nil {
+
+        if loggedIn {
             authState = .authenticated
         }
     }
@@ -72,7 +73,6 @@ final class AuthManager {
         do {
             try await KeychainManager.deleteToken()
             authState = .unauthenticated
-            jwtToken = nil
         } catch {
             errorMessage = .authLogoutFail
         }

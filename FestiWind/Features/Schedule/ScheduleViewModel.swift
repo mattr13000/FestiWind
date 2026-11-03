@@ -46,15 +46,15 @@ final class ScheduleViewModel {
     }
     
     func getBookingState(workshop: Workshop) -> BookingStatus {
-        if (loadingWorkshopIDs.contains(workshop.id)) {
+        if loadingWorkshopIDs.contains(workshop.id) {
             return .pendingRequest
         }
         
-        if (userBookings.contains(where: {$0.workshopID == workshop.id})) {
+        if userBookings.contains(where: {$0.workshopID == workshop.id}) {
             return .alreadyBooked
         }
         
-        if (workshop.remainingSlots <= 0) {
+        if workshop.remainingSlots <= 0 {
             return .workshopFull
         }
         

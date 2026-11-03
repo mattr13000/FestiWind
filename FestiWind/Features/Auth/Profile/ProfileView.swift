@@ -13,22 +13,19 @@ struct ProfileView: View {
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.backgroundBlue
-                    .ignoresSafeArea()
+                BackgroundView()
                 VStack {
                     Text(.commonFeaturePlaceholder)
                         .font(.title2)
                     Text(authManager.errorMessage ?? "")
                     GlassButtonView(
-                        buttonText: "Log out",
+                        buttonText: .logoutConfirm,
                         frameMaxWidth: 280,
                         opacity: 0.3,
                         textColor: .textPrimary,
                         backgroundColor: .red
                     ) {
-                        Task {
-                           isLoggingOut = true
-                        }
+                        isLoggingOut = true
                     }
                     .alert(
                         .logoutAlertPrompt,
