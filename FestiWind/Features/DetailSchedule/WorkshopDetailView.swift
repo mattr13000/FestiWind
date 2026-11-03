@@ -11,8 +11,9 @@ struct WorkshopDetailView: View {
     
     @State private var workshopDetailVM: WorkshopDetailViewModel
     var workshopID: UUID
-    init(manager: FestivalManager) {
+    init(manager: FestivalManager, workshopID: UUID) {
         _workshopDetailVM = State(initialValue: WorkshopDetailViewModel(manager: manager))
+        self.workshopID = workshopID
     }
     
     var body: some View {
@@ -24,7 +25,7 @@ struct WorkshopDetailView: View {
                         .frame(height: 300)
                     VStack(alignment: .leading, spacing: 12) {
                         HStack {
-                            Text(workshop.name)
+                            Text(workshopDetailVM.workshop!.name)
                                 .font(.title2)
                                 .fontWeight(.bold)
                                 .foregroundColor(.black)
@@ -35,18 +36,18 @@ struct WorkshopDetailView: View {
                         }
                         HStack {
                             Image(systemName: "calendar")
-                            Text("\(workshop.startTime.formatted(.dateTime.weekday(.wide).day().month(.wide)))")
+                            Text("\(workshopDetailVM.workshop!.startTime.formatted(.dateTime.weekday(.wide).day().month(.wide)))")
                         }
                         .font(.subheadline)
                         
                         HStack {
                             Image(systemName: "clock")
                                 .font(.subheadline)
-                            Text("\(workshop.startTime.formatted(.dateTime.hour().minute())) - \(workshop.endTime.formatted(.dateTime.hour().minute()))")
+                            Text("\(workshopDetailVM.workshop!.startTime.formatted(.dateTime.hour().minute())) - \(workshopDetailVM.workshop!.endTime.formatted(.dateTime.hour().minute()))")
                         }
                         Text(.detailDescriptionPlaceholder)
                             .foregroundColor(.black)
-                        Text(workshop.description)
+                        Text(workshopDetailVM.workshop!.description)
                             .padding(.bottom, 20)
                             .foregroundColor(.black)
                         GlassButtonView(

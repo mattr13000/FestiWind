@@ -21,7 +21,10 @@ struct ScheduleView: View {
                 ScrollView {
                     VStack {
                         ForEach (scheduleVM.workshops) { workshop in
-                            NavigationLink(destination: WorkshopDetailView(manager: scheduleVM.manager))
+                            NavigationLink(destination: WorkshopDetailView(
+                                manager: scheduleVM.manager,
+                                workshopID: workshop.id
+                            ))
                             {
                                 ScheduleCard(
                                     title: workshop.name,
