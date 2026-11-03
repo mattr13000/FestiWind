@@ -23,9 +23,10 @@ struct BookingsView: View {
                 ScrollView {
                     VStack(alignment: .center) {
                             ForEach (bookingsVM.userBookings) { booking in
-                                BookingsCard(title: booking.workshopName,
-                                             startTime: booking.startTime,
-                                             endTime: booking.endTime
+                                BookingsCard(
+                                    title: booking.workshopName,
+                                    startTime: booking.startTime,
+                                    endTime: booking.endTime
                                 ){
                                     Task {
                                         await bookingsVM.cancelReservation(reservationID: booking.id)
