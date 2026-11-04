@@ -7,24 +7,24 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct TabBarView: View {
+    @State private var festivalManager = FestivalManager()
     var body: some View {
         TabView {
             Tab(.navTitleSchedule, systemImage: "book") {
-                ScheduleView()
+                ScheduleView(manager: festivalManager)
             }
-            
+
             Tab(.navTitleBookings, systemImage: "calendar") {
-                BookingsView()
+                BookingsView(manager: festivalManager)
             }
             Tab(.navTitleProfile, systemImage: "person.fill") {
                 ProfileView()
             }
         }
-
     }
 }
 
 #Preview {
-    ContentView()
+    TabBarView()
 }
