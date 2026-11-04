@@ -24,10 +24,19 @@ struct WorkshopDetailView: View {
                     BackgroundImageView()
                         .frame(height: 300)
                     VStack(alignment: .leading, spacing: 12) {
-                        Text(workshop.name)
-                            .font(.title2)
-                            .fontWeight(.bold)
-                            .foregroundStyle(.black)
+                        HStack {
+                            Text(workshop.name)
+                                .font(.title2)
+                                .fontWeight(.bold)
+                                .foregroundStyle(.black)
+                            Spacer()
+                            Group {
+                                Text(.scheduleRemainingSpots)
+                                Text(String(workshop.remainingSlots))
+                            }
+                            .font(.subheadline)
+                            .foregroundStyle(.gray)
+                        }
                         HStack {
                             Image(systemName: "calendar")
                             Text("\(workshop.startTime.formatted(.dateTime.weekday(.wide).day().month(.wide)))")

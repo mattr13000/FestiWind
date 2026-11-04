@@ -80,23 +80,6 @@
         }
       }
     },
-    "auth.error.loginFailed" : {
-      "extractionState" : "manual",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Login failed"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Échec de l’authentification"
-          }
-        }
-      }
-    },
     "auth.error.invalid_email" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -110,6 +93,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Adresse e-mail invalide"
+          }
+        }
+      }
+    },
+    "auth.error.loginFailed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Login failed"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Échec de l’authentification"
           }
         }
       }
@@ -932,9 +932,6 @@
           }
         }
       }
-    },
-    "Trigger Bounce" : {
-
     }
   },
   "version" : "1.2"

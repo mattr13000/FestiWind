@@ -44,7 +44,7 @@ struct ScheduleCard: View {
                     
             }
             .font(.subheadline)
-                .foregroundStyle(.gray)
+            .foregroundStyle(.gray)
             GlassButtonView(
                 buttonText: bookingStatus.resource,
                 frameMaxWidth: .infinity,
