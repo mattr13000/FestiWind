@@ -15,17 +15,26 @@ struct GlassButtonView: View {
     var opacity: CGFloat
     var textColor: Color
     var backgroundColor: Color
+    var isLoading: Bool = false
     var action: () -> Void
-    
+
     var body: some View {
         Button(action: action) {
-            Text(buttonText)
-                .font(.headline)
-                .foregroundStyle(textColor)
-                .frame(maxWidth: frameMaxWidth, maxHeight: frameMaxHeight)
-                .padding()
-                .glassEffect(.regular.tint(backgroundColor.opacity(opacity)))
+            Group {
+                if isLoading {
+                    ProgressView()
+                        .tint(textColor)
+                } else {
+                    Text(buttonText)
+                }
+            }
+            .font(.headline)
+            .foregroundStyle(textColor)
+            .frame(maxWidth: frameMaxWidth, maxHeight: frameMaxHeight)
+            .padding()
+            .glassEffect(.regular.tint(backgroundColor.opacity(opacity)))
         }
+        .disabled(isLoading)
     }
 }
 

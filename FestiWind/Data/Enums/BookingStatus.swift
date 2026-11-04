@@ -11,17 +11,20 @@ enum BookingStatus {
     case bookingAvailable
     case alreadyBooked
     case workshopFull
+    case pendingRequest
     
     var resource: LocalizedStringResource {
-            switch self {
-            case .bookingAvailable:
-                return .scheduleButtonEnabled
-            case .alreadyBooked:
-                return .scheduleButtonDisabledBooked
-            case .workshopFull:
-                return .scheduleButtonDisabledFull
-            }
+        switch self {
+        case .bookingAvailable:
+            return .scheduleButtonEnabled
+        case .alreadyBooked:
+            return .scheduleButtonDisabledBooked
+        case .workshopFull:
+            return .scheduleButtonDisabledFull
+        case .pendingRequest:
+            return .commonPendingLabel
         }
+    }
     
     var buttonState: Bool {
             switch self {
@@ -30,6 +33,8 @@ enum BookingStatus {
             case .alreadyBooked:
                 return true
             case .workshopFull:
+                return true
+            case .pendingRequest:
                 return true
             }
         }

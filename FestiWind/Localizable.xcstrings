@@ -17,9 +17,6 @@
         }
       }
     },
-    "11 pm to 12 pm" : {
-
-    },
     "app.title" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -66,6 +63,40 @@
         }
       }
     },
+    "auth.error_register_failed" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Register failed"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Échec de l’inscription"
+          }
+        }
+      }
+    },
+    "auth.error.invalid_email" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Invalid email"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adresse e-mail invalide"
+          }
+        }
+      }
+    },
     "auth.error.loginFailed" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -78,7 +109,58 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Échec de l’authentication"
+            "value" : "Échec de l’authentification"
+          }
+        }
+      }
+    },
+    "auth.error.name_too_short" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Name must be at least 4 characters"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le nom doit contenir au moins 4 caractères"
+          }
+        }
+      }
+    },
+    "auth.error.password_too_short" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Password must be at least 8 characters long"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Le mot de passe doit contenir au moins 8 caractères"
+          }
+        }
+      }
+    },
+    "auth.error.passwords_mismatch" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Passwords must be identical"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Les mots de passe ne correspondent pas"
           }
         }
       }
@@ -125,6 +207,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Login"
+          }
+        }
+      }
+    },
+    "auth.logout_fail" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log out failed"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Déconnexion échouée"
           }
         }
       }
@@ -501,6 +600,23 @@
         }
       }
     },
+    "common.pending_label" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pending …"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "En attente ..."
+          }
+        }
+      }
+    },
     "common.pw_confirm_placeholder" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -579,16 +695,55 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Descritpion :"
+            "value" : "Description :"
           }
         }
       }
     },
-    "Kite surf" : {
-
+    "logout.alert_prompt" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log out ?"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se déconnecter ?"
+          }
+        }
+      }
     },
-    "Le kitesurf, ou planche arétractée a était créer dans les années 2000." : {
-
+    "logout.cancel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        }
+      }
+    },
+    "logout.confirm" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Log out"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "needs_review",
+            "value" : "Se déconnecter"
+          }
+        }
+      }
     },
     "navTitle.bookings" : {
       "extractionState" : "manual",
