@@ -38,13 +38,9 @@ final class AuthManager {
             token = nil
         }
 
-        try? await minDelay
-
         if token == nil {
             authState = .unauthenticated
-        }
-        
-        if token != nil {
+        } else {
             do {
                 _ = try await authService.getProfile()
                 authState = .authenticated
@@ -54,6 +50,8 @@ final class AuthManager {
                 authState = .unauthenticated
             }
         }
+        
+        try? await minDelay
     }
     
     func login(email: String, password: String) async {
