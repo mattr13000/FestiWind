@@ -24,7 +24,7 @@ struct RootView: View {
         .transition(.opacity)
         .animation(.easeInOut(duration: 0.4), value: authManager.authState)
         .task {
-            await authManager.checkStatus()
+            await authManager.restoreSession()
         }
     }
 }
