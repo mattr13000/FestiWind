@@ -25,7 +25,7 @@ final class AuthManager {
     private let authService = AuthService()
     private let minDuration: Duration = .milliseconds(800)
     
-    func checkStatus() async {
+    func restoreSession() async {
         authState = .checking
         
         async let minDelay = Task.sleep(for: minDuration)
@@ -38,9 +38,20 @@ final class AuthManager {
             token = nil
         }
 
+        if token == nil {
+            authState = .unauthenticated
+        } else {
+            do {
+                _ = try await authService.getProfile()
+                authState = .authenticated
+            } catch {
+                errorMessage = .authStatusUnauthenticated
+                try? await KeychainManager.deleteToken()
+                authState = .unauthenticated
+            }
+        }
+        
         try? await minDelay
-
-        authState = token == nil ? .unauthenticated : .authenticated
     }
     
     func login(email: String, password: String) async {

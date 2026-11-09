@@ -11,12 +11,12 @@ import SwiftUI
 final class ScheduleViewModel {
     let manager: FestivalManager
 
-    var workshops: [Workshop] {manager.store.workshops}
+    var workshops: [Workshop] {manager.store.workshops.sorted(by: {$0.startTime < $1.startTime})}
     private var userBookings: [Reservation] {manager.store.userBookings}
     
     private let duration: Duration = .milliseconds(800)
     
-    private(set) var loadingWorkshopIDs: Set<UUID> = []
+    var loadingWorkshopIDs: Set<UUID> = []
     
     var errorMessage: LocalizedStringResource?
     
